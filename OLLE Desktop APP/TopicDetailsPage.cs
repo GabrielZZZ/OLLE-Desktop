@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,26 +10,11 @@ using System.Windows.Forms;
 
 namespace OLLE_Desktop_APP
 {
-    public partial class Topic : UserControl
+    public partial class TopicDetailsPage : Form
     {
-        public Topic()
+        public TopicDetailsPage()
         {
             InitializeComponent();
-        }
-
-        private void author_image_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void topic_title_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void topic_details_Click(object sender, EventArgs e)
-        {
-
         }
 
         public string TopicAuthor
@@ -48,8 +33,8 @@ namespace OLLE_Desktop_APP
 
         public string TopicDetails
         {
-            get { return topic_details.Text; }
-            set { topic_details.Text = value; }
+            get { return topic_details1.Text; }
+            set { topic_details1.Text = value; }
 
         }
 
@@ -80,31 +65,5 @@ namespace OLLE_Desktop_APP
                 author_image.Image = Image.FromFile(@"C:\Users\A\Desktop\OLLE\testImage.jpg");
             }
         }
-
-        
-        private void view_details_Click_1(object sender, EventArgs e)
-        {
-            //MessageBox.Show("Ouch!");
-            TopicDetailsPage Detail_page = new TopicDetailsPage();
-
-            //pass image to TopicDetailPage
-            Detail_page.AuthorImage = author_image.Image;
-
-            //pass author name to TopicDetailPage
-            Detail_page.TopicAuthor = author_name.Text;
-
-            //pass topic title to TopicDetailPage
-            Detail_page.TopicTitle = topic_title.Text;
-
-            //pass topic details to TopicDetailPage
-            Detail_page.TopicDetails = topic_details.Text;
-
-            //pass topic date to TopicDetailPage
-            Detail_page.TopicDate = topic_date.Text;
-
-            //show TopicDetailPage
-            Detail_page.ShowDialog();
-        }
     }
-
 }

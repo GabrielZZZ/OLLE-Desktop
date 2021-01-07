@@ -50,7 +50,8 @@ namespace OLLE_Desktop_APP
             //create topics panel
             for (int i = 0; i < myDeserializedClass.TopicsData.Count; i++)
             {
-                UserControl1 test = new UserControl1();
+                //UserControl1 test = new UserControl1();
+                Topic test = new Topic();
                 //test.AuthorImage = Image.FromStream(myDeserializedClass.TopicsData[i].imageUrl);
                 test.ChangeAuthorImage(myDeserializedClass.TopicsData[i].imageUrl);
                 test.TopicAuthor = myDeserializedClass.TopicsData[i].post_username;

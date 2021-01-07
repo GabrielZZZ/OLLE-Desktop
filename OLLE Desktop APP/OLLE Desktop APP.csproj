@@ -99,6 +99,12 @@
     <Compile Include="Topic.Designer.cs">
       <DependentUpon>Topic.cs</DependentUpon>
     </Compile>
+    <Compile Include="TopicDetailsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TopicDetailsPage.Designer.cs">
+      <DependentUpon>TopicDetailsPage.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forum.resx">
       <DependentUpon>Forum.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,6 +122,9 @@
     </Compile>
     <EmbeddedResource Include="Topic.resx">
       <DependentUpon>Topic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TopicDetailsPage.resx">
+      <DependentUpon>TopicDetailsPage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
