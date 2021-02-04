@@ -70,7 +70,7 @@ namespace OLLE_Desktop_APP
             req.Timeout = 800;//设置请求超时时间，单位为毫秒
 
             req.ContentType = "application/json";
-
+        
             byte[] data = Encoding.UTF8.GetBytes(paramStr);
 
             req.ContentLength = data.Length;

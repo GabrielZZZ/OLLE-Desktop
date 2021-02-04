@@ -34,15 +34,15 @@ namespace OLLE_Desktop_APP
 
         public string TopicAuthor
         {
-            get { return author_name.Text; }
-            set { author_name.Text = value; }
+            get { return author_name1.Text; }
+            set { author_name1.Text = value; }
 
         }
 
         public string TopicTitle
         {
-            get { return topic_title.Text; }
-            set { topic_title.Text = value; }
+            get { return topic_title1.Text; }
+            set { topic_title1.Text = value; }
 
         }
 
@@ -55,15 +55,15 @@ namespace OLLE_Desktop_APP
 
         public string TopicDate
         {
-            get { return topic_date.Text; }
-            set { topic_date.Text = value; }
+            get { return topic_date1.Text; }
+            set { topic_date1.Text = value; }
 
         }
 
         public Image AuthorImage
         {
-            get { return author_image.Image; }
-            set { author_image.Image = value; }
+            get { return author_image1.Image; }
+            set { author_image1.Image = value; }
 
         }
 
@@ -72,12 +72,13 @@ namespace OLLE_Desktop_APP
         {
             try
             {
-                author_image.Load(url);
+                author_image1.Load(url);
             }
             catch (Exception ex)
             {
                 //显示本地默认图片
-                author_image.Image = Image.FromFile(@"C:\Users\A\Desktop\OLLE\testImage.jpg");
+                author_image1.Load("https://olle2019-1257377975.cos.ap-chengdu.myqcloud.com/OLLE.png");
+                //author_image1.Image = Image.FromFile(@"C:\Users\A\Desktop\OLLE\testImage.jpg");
             }
         }
 
@@ -88,19 +89,19 @@ namespace OLLE_Desktop_APP
             TopicDetailsPage Detail_page = new TopicDetailsPage();
 
             //pass image to TopicDetailPage
-            Detail_page.AuthorImage = author_image.Image;
+            Detail_page.AuthorImage = author_image1.Image;
 
             //pass author name to TopicDetailPage
-            Detail_page.TopicAuthor = author_name.Text;
+            Detail_page.TopicAuthor = author_name1.Text;
 
             //pass topic title to TopicDetailPage
-            Detail_page.TopicTitle = topic_title.Text;
+            Detail_page.TopicTitle = topic_title1.Text;
 
             //pass topic details to TopicDetailPage
             Detail_page.TopicDetails = topic_details.Text;
 
             //pass topic date to TopicDetailPage
-            Detail_page.TopicDate = topic_date.Text;
+            Detail_page.TopicDate = topic_date1.Text;
 
             //show TopicDetailPage
             Detail_page.ShowDialog();

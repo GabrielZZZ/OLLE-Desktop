@@ -31,8 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Forum));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.newTopic = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.NAAenable = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,54 +41,76 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(24, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 28);
+            this.label1.Size = new System.Drawing.Size(628, 111);
             this.label1.TabIndex = 0;
             this.label1.Text = "OLLE Forum";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel1
             // 
+            this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.NAAenable);
+            this.panel1.Controls.Add(this.newTopic);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1056, 74);
+            this.panel1.Size = new System.Drawing.Size(1686, 148);
             this.panel1.TabIndex = 2;
             // 
-            // panel2
+            // newTopic
             // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 74);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 495);
-            this.panel2.TabIndex = 3;
+            this.newTopic.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newTopic.Location = new System.Drawing.Point(1462, 89);
+            this.newTopic.Name = "newTopic";
+            this.newTopic.Size = new System.Drawing.Size(202, 50);
+            this.newTopic.TabIndex = 1;
+            this.newTopic.Text = "New Topic";
+            this.newTopic.UseVisualStyleBackColor = true;
+            this.newTopic.Click += new System.EventHandler(this.newTopic_Click);
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(198, 74);
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 148);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(856, 495);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1686, 990);
             this.flowLayoutPanel1.TabIndex = 5;
+            // 
+            // NAAenable
+            // 
+            this.NAAenable.AutoSize = true;
+            this.NAAenable.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NAAenable.ForeColor = System.Drawing.Color.White;
+            this.NAAenable.Location = new System.Drawing.Point(1263, 107);
+            this.NAAenable.Name = "NAAenable";
+            this.NAAenable.Size = new System.Drawing.Size(96, 32);
+            this.NAAenable.TabIndex = 2;
+            this.NAAenable.Text = "NAA";
+            this.NAAenable.UseVisualStyleBackColor = true;
+            this.NAAenable.CheckedChanged += new System.EventHandler(this.NAAenable_CheckedChanged);
             // 
             // Forum
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1056, 569);
+            this.ClientSize = new System.Drawing.Size(1686, 1138);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Forum";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Forum";
@@ -102,7 +125,8 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button newTopic;
+        private System.Windows.Forms.CheckBox NAAenable;
     }
 }

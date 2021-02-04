@@ -28,39 +28,12 @@ namespace OLLE_Desktop_APP
         private void Forum_Load(object sender, EventArgs e)
         {
             //add list view items
-           
+
 
             //lv_person.Items.Add(lv1);
- 
 
-            //Fetch Form Data
-            string url = Program.host_url + "getTopics";
-
-            string result = Program.PostToServer(url,"","GET");
-
-            //MessageBox.Show(result, "Result");
-
-            //transfer json data to object
-            //Very Useful Website!!!: https://json2csharp.com/
-            JavaScriptSerializer js = new JavaScriptSerializer();
-
-            Root myDeserializedClass = js.Deserialize<Root>(result);
-
+            loadNormalEvent();
             
-            //create topics panel
-            for (int i = 0; i < myDeserializedClass.TopicsData.Count; i++)
-            {
-                //UserControl1 test = new UserControl1();
-                Topic test = new Topic();
-                //test.AuthorImage = Image.FromStream(myDeserializedClass.TopicsData[i].imageUrl);
-                test.ChangeAuthorImage(myDeserializedClass.TopicsData[i].imageUrl);
-                test.TopicAuthor = myDeserializedClass.TopicsData[i].post_username;
-                test.TopicTitle = myDeserializedClass.TopicsData[i].topic_title;
-                test.TopicDetails = myDeserializedClass.TopicsData[i].topic_detail;
-                test.TopicDate = myDeserializedClass.TopicsData[i].topic_date;
-
-                this.flowLayoutPanel1.Controls.Add(test);
-            }
 
         }
 
@@ -89,10 +62,92 @@ namespace OLLE_Desktop_APP
             public string videoUrl { get; set; }
             public string fileUrl { get; set; }
             public int topic_tag { get; set; }
-
-
-
+            public string profile_photo { get; set; }
         };
+
+        private void newTopic_Click(object sender, EventArgs e)
+        {
+            newTopic new_topic = new newTopic();
+            new_topic.ShowDialog();
+        }
+
+        private void NAAenable_CheckedChanged(object sender, EventArgs e)
+        {
+            if (NAAenable.Checked == true)
+            {
+                loadNAAEvent();
+            } else if (NAAenable.Checked == false)
+            {
+                this.flowLayoutPanel1.Controls.Clear();
+                loadNormalEvent();
+
+            }
+        }
+
+        private void loadNormalEvent()
+        {
+            //Fetch Form Data
+            string url = Program.host_url + "getTopics";
+
+            string result = Program.PostToServer(url, "", "GET");
+
+            //MessageBox.Show(result, "Result");
+
+            //transfer json data to object
+            //Very Useful Website!!!: https://json2csharp.com/
+            JavaScriptSerializer js = new JavaScriptSerializer();
+
+            Root myDeserializedClass = js.Deserialize<Root>(result);
+
+
+            //create topics panel
+            for (int i = 0; i < myDeserializedClass.TopicsData.Count; i++)
+            {
+                //UserControl1 test = new UserControl1();
+                Topic test = new Topic();
+                //test.AuthorImage = Image.FromStream(myDeserializedClass.TopicsData[i].imageUrl);
+                test.ChangeAuthorImage(myDeserializedClass.TopicsData[i].profile_photo);
+                test.TopicAuthor = myDeserializedClass.TopicsData[i].post_username;
+                test.TopicTitle = myDeserializedClass.TopicsData[i].topic_title;
+                test.TopicDetails = myDeserializedClass.TopicsData[i].topic_detail;
+                test.TopicDate = myDeserializedClass.TopicsData[i].topic_date;
+
+                this.flowLayoutPanel1.Controls.Add(test);
+            }
+        }
+
+        private void loadNAAEvent()
+        {
+            //Fetch Form Data
+            string url = Program.host_url + "getNaaTopics";
+
+            string result = Program.PostToServer(url, "", "GET");
+
+            //MessageBox.Show(result, "Result");
+
+            //transfer json data to object
+            //Very Useful Website!!!: https://json2csharp.com/
+            JavaScriptSerializer js = new JavaScriptSerializer();
+
+            Root myDeserializedClass = js.Deserialize<Root>(result);
+
+
+            //create topics panel
+            for (int i = 0; i < myDeserializedClass.TopicsData.Count; i++)
+            {
+                //UserControl1 test = new UserControl1();
+                Topic test1 = new Topic();
+                //test.AuthorImage = Image.FromStream(myDeserializedClass.TopicsData[i].imageUrl);
+                test1.ChangeAuthorImage(myDeserializedClass.TopicsData[i].profile_photo);
+                test1.TopicAuthor = myDeserializedClass.TopicsData[i].post_username;
+                test1.TopicTitle = myDeserializedClass.TopicsData[i].topic_title;
+                test1.TopicDetails = myDeserializedClass.TopicsData[i].topic_detail;
+                test1.TopicDate = myDeserializedClass.TopicsData[i].topic_date;
+
+                this.flowLayoutPanel1.Controls.Add(test1);
+            }
+
+        }
 
         /**
         public class WrapperTopicClass
