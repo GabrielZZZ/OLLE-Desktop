@@ -159,7 +159,7 @@ namespace OLLE_Desktop_APP
 
 
         /// 批量上传
-        public async void TransferBatchUploadObjects()
+        public async void TransferBatchUploadObjects(string[] cosPaths, string[] srcPaths)
         {
             //.cssg-snippet-body-start:[transfer-batch-upload-objects]
             TransferConfig transferConfig = new TransferConfig();
@@ -167,18 +167,19 @@ namespace OLLE_Desktop_APP
             // 初始化 TransferManager
             TransferManager transferManager = new TransferManager(cosXml, transferConfig);
 
-            string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+            string bucket = "olle2019-1257377975"; //存储桶，格式：BucketName-APPID
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < cosPaths.Length; i++)
             {
                 // 上传对象
-                string cosPath = "exampleobject" + i; //对象在存储桶中的位置标识符，即称对象键
-                string srcPath = @"temp-source-file";//本地文件绝对路径
-                COSXMLUploadTask uploadTask = new COSXMLUploadTask(bucket, cosPath);
-                uploadTask.SetSrcPath(srcPath);
+                // string cosPath = "exampleobject" + i; //对象在存储桶中的位置标识符，即称对象键
+                // string srcPath = @"temp-source-file";//本地文件绝对路径
+                COSXMLUploadTask uploadTask = new COSXMLUploadTask(bucket, cosPaths[i]);
+                uploadTask.SetSrcPath(srcPaths[i]);
                 await transferManager.UploadAsync(uploadTask);
             }
             //.cssg-snippet-body-end
+            MessageBox.Show("Upload Successfully!");
         }
 
         /**

@@ -15,6 +15,9 @@ namespace OLLE_Desktop_APP
 {
     public partial class newTopic : Form
     {
+
+        string file_names_total=""; // store all file names upload to the Database
+
         public newTopic()
         {
             InitializeComponent();
@@ -100,6 +103,7 @@ namespace OLLE_Desktop_APP
             string language = "English";
             string token = Program.userData.token;
 
+
             //string paramStr = "{\"username\":\"admin\"," + "\"password\":\"admin123\"}";
 
             string paramStr = "{\"topic_title\":\"" + title + "\"," + 
@@ -116,20 +120,23 @@ namespace OLLE_Desktop_APP
                 "\"fileUrl\":\"" + fileUrl + "\"," +
                 "\"topic_tag\":\"" + topic_tag + "\"," +
                 "\"language\":\"" + language + "\"," +
+                "\"files_url\":\"" + file_names_total + "\"," +
                 "\"topic_detail\":\"" + content + "\"}";
 
             string result = Program.PostToServer(url, paramStr, "POST");
 
 
 
-            if (result.Equals("{\"error\":{\"text\":\"Bad request wrong username and password \"}}"))
+            if (result.Contains("{\"error\""))
             {
-                return "Wrong Password";
+                MessageBox.Show("Post Error!");
+                return "Post Error!";
             }
             else
             {
-                Program.userData = Program.TransferJson(result);
-
+                //Program.userData = Program.TransferJson(result);
+                //no need to transfer json
+    
                 return result;
             }
 
@@ -164,18 +171,36 @@ namespace OLLE_Desktop_APP
             //初始化一个OpenFileDialog类
             OpenFileDialog fileDialog = new OpenFileDialog();
 
+            // enable multi-select
+            fileDialog.Multiselect = true;
+
             //判断用户是否正确的选择了文件
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                //获取用户选择文件的后缀名
-                string extension = Path.GetExtension(fileDialog.FileName);
-                //声明允许的后缀名
-                string[] str = new string[] { ".txt", ".word", ".ppt" };
+                // IMPORTANT: users shall make no space among filenames and use all the English characters
+
+                string[] srcPaths = new string[fileDialog.FileNames.Length];
+                string[] fileNames = new string[fileDialog.FileNames.Length];
+
+                for (int i = 0; i < fileDialog.FileNames.Length; i++)
+                {
+                    srcPaths[i] = Path.GetFullPath(fileDialog.FileNames[i]);//绝对路径
+                    fileNames[i] = "test/" + Path.GetFileName(fileDialog.FileNames[i]);
+                }
                 
-                string srcPath = System.IO.Path.GetFullPath(fileDialog.FileName); //绝对路径
-                string file_Name = "topics/"+ System.IO.Path.GetFileName(fileDialog.FileName);
-                MessageBox.Show(file_Name);
-                m.TransferUploadFile(srcPath,file_Name);
+                //string srcPath = System.IO.Path.GetFullPath(fileDialog.FileName); //绝对路径
+                //string file_Name = "topics/"+ System.IO.Path.GetFileName(fileDialog.FileName);
+                //MessageBox.Show(file_Name);
+                m.TransferBatchUploadObjects(fileNames, srcPaths);
+
+                // handle the filenames to store them into the database
+                for (int i = 0; i < srcPaths.Length; i++)
+                {
+                    // get the http address of each file uploaded to the bucket
+                    string file_address = "https://olle2019-1257377975.cos.ap-chengdu.myqcloud.com/" + fileNames[i] + ";"; // ";" is used to split
+                    file_names_total += file_address; 
+                }
+
             }
 
         }
