@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Web.Script.Serialization;
+using System.IO;
+using System.Collections;
 
 namespace OLLE_Desktop_APP
 {
@@ -153,6 +155,28 @@ namespace OLLE_Desktop_APP
 
 
             return topicDataDetails;
+
+        }
+
+        private void uploadFile_Click(object sender, EventArgs e)
+        {
+            TransferUploadObjectModel m = new TransferUploadObjectModel();
+            //初始化一个OpenFileDialog类
+            OpenFileDialog fileDialog = new OpenFileDialog();
+
+            //判断用户是否正确的选择了文件
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                //获取用户选择文件的后缀名
+                string extension = Path.GetExtension(fileDialog.FileName);
+                //声明允许的后缀名
+                string[] str = new string[] { ".txt", ".word", ".ppt" };
+                
+                string srcPath = System.IO.Path.GetFullPath(fileDialog.FileName); //绝对路径
+                string file_Name = "topics/"+ System.IO.Path.GetFileName(fileDialog.FileName);
+                MessageBox.Show(file_Name);
+                m.TransferUploadFile(srcPath,file_Name);
+            }
 
         }
     }

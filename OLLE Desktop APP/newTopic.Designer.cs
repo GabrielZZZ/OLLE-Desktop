@@ -36,6 +36,8 @@
             this.italic = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.submitTopic = new System.Windows.Forms.Button();
+            this.uploadFile = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // label1
@@ -120,12 +122,28 @@
             this.submitTopic.UseVisualStyleBackColor = true;
             this.submitTopic.Click += new System.EventHandler(this.submitTopic_Click);
             // 
+            // uploadFile
+            // 
+            this.uploadFile.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadFile.Location = new System.Drawing.Point(34, 1249);
+            this.uploadFile.Name = "uploadFile";
+            this.uploadFile.Size = new System.Drawing.Size(285, 117);
+            this.uploadFile.TabIndex = 8;
+            this.uploadFile.Text = "Upload File";
+            this.uploadFile.UseVisualStyleBackColor = true;
+            this.uploadFile.Click += new System.EventHandler(this.uploadFile_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // newTopic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1686, 1529);
+            this.Controls.Add(this.uploadFile);
             this.Controls.Add(this.submitTopic);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.italic);
@@ -151,5 +169,7 @@
         private System.Windows.Forms.Button italic;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button submitTopic;
+        private System.Windows.Forms.Button uploadFile;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
