@@ -67,7 +67,7 @@ namespace OLLE_Desktop_APP
 
             req.Method = Method;
 
-            req.Timeout = 800;//设置请求超时时间，单位为毫秒
+            req.Timeout = 8000;//设置请求超时时间，单位为毫秒
 
             req.ContentType = "application/json";
         

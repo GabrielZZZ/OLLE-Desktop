@@ -17,7 +17,10 @@ namespace OLLE_Desktop_APP
     {
 
         string file_names_total=""; // store all file names upload to the Database
+        List<string> src_path_total = new List<string>();
+        List<string> file_path_total = new List<string>();
 
+        
         public newTopic()
         {
             InitializeComponent();
@@ -99,7 +102,7 @@ namespace OLLE_Desktop_APP
             string imageUrl3 = "";
             string videoUrl = "";
             string fileUrl = "";
-            string topic_tag = "1";
+            string topic_tag = "0";
             string language = "English";
             string token = Program.userData.token;
 
@@ -124,7 +127,8 @@ namespace OLLE_Desktop_APP
                 "\"topic_detail\":\"" + content + "\"}";
 
             string result = Program.PostToServer(url, paramStr, "POST");
-
+            TransferUploadObjectModel m = new TransferUploadObjectModel();
+            m.TransferBatchUploadObjects(file_path_total, src_path_total);
 
 
             if (result.Contains("{\"error\""))
@@ -167,12 +171,13 @@ namespace OLLE_Desktop_APP
 
         private void uploadFile_Click(object sender, EventArgs e)
         {
-            TransferUploadObjectModel m = new TransferUploadObjectModel();
+            
             //初始化一个OpenFileDialog类
             OpenFileDialog fileDialog = new OpenFileDialog();
 
             // enable multi-select
             fileDialog.Multiselect = true;
+            fileDialog.Filter = "supported type|*.docx;*.pptx;*.pdf;*.mp4";
 
             //判断用户是否正确的选择了文件
             if (fileDialog.ShowDialog() == DialogResult.OK)
@@ -186,12 +191,26 @@ namespace OLLE_Desktop_APP
                 {
                     srcPaths[i] = Path.GetFullPath(fileDialog.FileNames[i]);//绝对路径
                     fileNames[i] = "test/" + Path.GetFileName(fileDialog.FileNames[i]);
+
+                    // add to golbal variables
+                    src_path_total.Add(srcPaths[i]);
+                    file_path_total.Add(fileNames[i]);
                 }
                 
-                //string srcPath = System.IO.Path.GetFullPath(fileDialog.FileName); //绝对路径
-                //string file_Name = "topics/"+ System.IO.Path.GetFileName(fileDialog.FileName);
+                
+                // add fileIcon control in selectFilePanel
+                for (int i = 0; i < fileDialog.FileNames.Length; i++)
+                {
+                    FileIcon fileIcon = new FileIcon();
+                    string test = Path.GetExtension(fileDialog.FileNames[i]);
+                    fileIcon.ChangeFileIconImage(Path.GetExtension(fileDialog.FileNames[i]));
+                    fileIcon.FileName = Path.GetFileName(fileDialog.FileNames[i]);
+                    this.selectFilePanel.Controls.Add(fileIcon);
+
+                }
+
                 //MessageBox.Show(file_Name);
-                m.TransferBatchUploadObjects(fileNames, srcPaths);
+                //m.TransferBatchUploadObjects(fileNames, srcPaths);
 
                 // handle the filenames to store them into the database
                 for (int i = 0; i < srcPaths.Length; i++)

@@ -37,23 +37,23 @@
             this.label3 = new System.Windows.Forms.Label();
             this.submitTopic = new System.Windows.Forms.Button();
             this.uploadFile = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.selectFilePanel = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(23, 66);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 61);
+            this.label1.Size = new System.Drawing.Size(129, 61);
             this.label1.TabIndex = 0;
             this.label1.Text = "Title";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // titleBox
             // 
-            this.titleBox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleBox.Location = new System.Drawing.Point(34, 152);
             this.titleBox.Name = "titleBox";
             this.titleBox.Size = new System.Drawing.Size(1608, 35);
@@ -62,17 +62,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(23, 243);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(260, 61);
+            this.label2.Size = new System.Drawing.Size(238, 61);
             this.label2.TabIndex = 2;
             this.label2.Text = "Contents";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // contentBox
             // 
-            this.contentBox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contentBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contentBox.Location = new System.Drawing.Point(34, 364);
             this.contentBox.Name = "contentBox";
             this.contentBox.Size = new System.Drawing.Size(1608, 694);
@@ -82,7 +82,7 @@
             // bold
             // 
             this.bold.BackColor = System.Drawing.Color.White;
-            this.bold.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bold.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bold.Location = new System.Drawing.Point(34, 308);
             this.bold.Name = "bold";
             this.bold.Size = new System.Drawing.Size(59, 43);
@@ -93,7 +93,7 @@
             // italic
             // 
             this.italic.BackColor = System.Drawing.Color.White;
-            this.italic.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.italic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.italic.Location = new System.Drawing.Point(102, 307);
             this.italic.Name = "italic";
             this.italic.Size = new System.Drawing.Size(59, 43);
@@ -104,16 +104,16 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(33, 1118);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(210, 61);
+            this.label3.Size = new System.Drawing.Size(194, 61);
             this.label3.TabIndex = 6;
             this.label3.Text = "Upload";
             // 
             // submitTopic
             // 
-            this.submitTopic.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitTopic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.submitTopic.Location = new System.Drawing.Point(1501, 34);
             this.submitTopic.Name = "submitTopic";
             this.submitTopic.Size = new System.Drawing.Size(141, 50);
@@ -124,7 +124,7 @@
             // 
             // uploadFile
             // 
-            this.uploadFile.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uploadFile.Location = new System.Drawing.Point(34, 1249);
             this.uploadFile.Name = "uploadFile";
             this.uploadFile.Size = new System.Drawing.Size(285, 117);
@@ -133,9 +133,15 @@
             this.uploadFile.UseVisualStyleBackColor = true;
             this.uploadFile.Click += new System.EventHandler(this.uploadFile_Click);
             // 
-            // openFileDialog1
+            // selectFilePanel
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.selectFilePanel.AutoScroll = true;
+            this.selectFilePanel.AutoSize = true;
+            this.selectFilePanel.BackColor = System.Drawing.Color.White;
+            this.selectFilePanel.Location = new System.Drawing.Point(400, 1177);
+            this.selectFilePanel.Name = "selectFilePanel";
+            this.selectFilePanel.Size = new System.Drawing.Size(1242, 317);
+            this.selectFilePanel.TabIndex = 9;
             // 
             // newTopic
             // 
@@ -143,6 +149,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1686, 1529);
+            this.Controls.Add(this.selectFilePanel);
             this.Controls.Add(this.uploadFile);
             this.Controls.Add(this.submitTopic);
             this.Controls.Add(this.label3);
@@ -170,6 +177,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button submitTopic;
         private System.Windows.Forms.Button uploadFile;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.FlowLayoutPanel selectFilePanel;
     }
 }

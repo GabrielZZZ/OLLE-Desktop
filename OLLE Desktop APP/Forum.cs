@@ -63,6 +63,7 @@ namespace OLLE_Desktop_APP
             public string fileUrl { get; set; }
             public int topic_tag { get; set; }
             public string profile_photo { get; set; }
+            public string files_url { get; set; }
         };
 
         private void newTopic_Click(object sender, EventArgs e)

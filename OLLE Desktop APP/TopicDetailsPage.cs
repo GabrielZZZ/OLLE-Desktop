@@ -12,6 +12,9 @@ namespace OLLE_Desktop_APP
 {
     public partial class TopicDetailsPage : Form
     {
+        List<string> src_path_total = new List<string>();
+        List<string> file_path_total = new List<string>();
+
         public TopicDetailsPage()
         {
             InitializeComponent();
@@ -64,6 +67,17 @@ namespace OLLE_Desktop_APP
                 //显示本地默认图片
                 author_image.Image = Image.FromFile(@"C:\Users\A\Desktop\OLLE\testImage.jpg");
             }
+        }
+
+        // add file panel
+        public void AddFilePanel(string files_url)
+        {
+            string[] files_url_split = files_url.Split(';');
+        }
+
+        private void topic_details1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

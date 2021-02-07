@@ -159,7 +159,7 @@ namespace OLLE_Desktop_APP
 
 
         /// 批量上传
-        public async void TransferBatchUploadObjects(string[] cosPaths, string[] srcPaths)
+        public async void TransferBatchUploadObjects(List<string> cosPaths, List<string> srcPaths)
         {
             //.cssg-snippet-body-start:[transfer-batch-upload-objects]
             TransferConfig transferConfig = new TransferConfig();
@@ -169,7 +169,7 @@ namespace OLLE_Desktop_APP
 
             string bucket = "olle2019-1257377975"; //存储桶，格式：BucketName-APPID
 
-            for (int i = 0; i < cosPaths.Length; i++)
+            for (int i = 0; i < cosPaths.Count; i++)
             {
                 // 上传对象
                 // string cosPath = "exampleobject" + i; //对象在存储桶中的位置标识符，即称对象键

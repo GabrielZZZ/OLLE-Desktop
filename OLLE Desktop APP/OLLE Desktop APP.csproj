@@ -82,6 +82,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileIcon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FileIcon.Designer.cs">
+      <DependentUpon>FileIcon.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransferUploadObjectModel.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -115,6 +121,9 @@
     <Compile Include="TopicDetailsPage.Designer.cs">
       <DependentUpon>TopicDetailsPage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FileIcon.resx">
+      <DependentUpon>FileIcon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forum.resx">
       <DependentUpon>Forum.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +141,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Topic.resx">
       <DependentUpon>Topic.cs</DependentUpon>
@@ -152,6 +162,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pdf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\word.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PPT.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
