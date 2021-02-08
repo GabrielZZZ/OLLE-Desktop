@@ -181,5 +181,8 @@
   <ItemGroup>
     <None Include="Resources\PPT.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\下载.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

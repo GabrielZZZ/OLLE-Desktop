@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -73,9 +74,27 @@ namespace OLLE_Desktop_APP
         public void AddFilePanel(string files_url)
         {
             string[] files_url_split = files_url.Split(';');
+
+            // add fileIcon control in selectFilePanel
+            for (int i = 0; i < files_url_split.Length-1; i++)
+            {
+                FileIcon fileIcon = new FileIcon();
+                string test = Path.GetExtension(files_url_split[i]);
+                fileIcon.ChangeFileIconImage(Path.GetExtension(files_url_split[i]));
+                fileIcon.FileName = Path.GetFileName(files_url_split[i]);
+                fileIcon.Scale(new SizeF(0.5f,0.5f));
+                fileLayoutPanel.Controls.Add(fileIcon);
+
+            }
+
         }
 
         private void topic_details1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

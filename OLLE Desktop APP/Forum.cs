@@ -112,7 +112,7 @@ namespace OLLE_Desktop_APP
                 test.TopicTitle = myDeserializedClass.TopicsData[i].topic_title;
                 test.TopicDetails = myDeserializedClass.TopicsData[i].topic_detail;
                 test.TopicDate = myDeserializedClass.TopicsData[i].topic_date;
-
+                test.files_url = myDeserializedClass.TopicsData[i].files_url;
                 this.flowLayoutPanel1.Controls.Add(test);
             }
         }

@@ -32,9 +32,11 @@
             this.topic_date = new System.Windows.Forms.Label();
             this.topic_details1 = new System.Windows.Forms.RichTextBox();
             this.author_name = new System.Windows.Forms.Label();
-            this.author_image = new System.Windows.Forms.PictureBox();
             this.topic_title = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.fileLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.author_image = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.author_image)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +58,7 @@
             this.topic_details1.Cursor = System.Windows.Forms.Cursors.Default;
             this.topic_details1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.topic_details1.Location = new System.Drawing.Point(197, 325);
-            this.topic_details1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.topic_details1.Margin = new System.Windows.Forms.Padding(6);
             this.topic_details1.Name = "topic_details1";
             this.topic_details1.ReadOnly = true;
             this.topic_details1.Size = new System.Drawing.Size(1388, 776);
@@ -75,17 +77,6 @@
             this.author_name.TabIndex = 15;
             this.author_name.Text = "Name";
             // 
-            // author_image
-            // 
-            this.author_image.Image = ((System.Drawing.Image)(resources.GetObject("author_image.Image")));
-            this.author_image.Location = new System.Drawing.Point(34, 26);
-            this.author_image.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.author_image.Name = "author_image";
-            this.author_image.Size = new System.Drawing.Size(124, 118);
-            this.author_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.author_image.TabIndex = 14;
-            this.author_image.TabStop = false;
-            // 
             // topic_title
             // 
             this.topic_title.AutoSize = true;
@@ -98,15 +89,47 @@
             this.topic_title.TabIndex = 13;
             this.topic_title.Text = "Title";
             // 
-            // flowLayoutPanel1
+            // fileLayoutPanel
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(198, 95);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1388, 196);
-            this.flowLayoutPanel1.TabIndex = 18;
+            this.fileLayoutPanel.AutoScroll = true;
+            this.fileLayoutPanel.BackColor = System.Drawing.Color.White;
+            this.fileLayoutPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.fileLayoutPanel.Location = new System.Drawing.Point(198, 95);
+            this.fileLayoutPanel.Name = "fileLayoutPanel";
+            this.fileLayoutPanel.Size = new System.Drawing.Size(1148, 196);
+            this.fileLayoutPanel.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1427, 228);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 24);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "download";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.BackgroundImage = global::OLLE_Desktop_APP.Properties.Resources.download;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Location = new System.Drawing.Point(1427, 111);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(95, 93);
+            this.button1.TabIndex = 19;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // author_image
+            // 
+            this.author_image.Image = ((System.Drawing.Image)(resources.GetObject("author_image.Image")));
+            this.author_image.Location = new System.Drawing.Point(34, 26);
+            this.author_image.Margin = new System.Windows.Forms.Padding(6);
+            this.author_image.Name = "author_image";
+            this.author_image.Size = new System.Drawing.Size(124, 118);
+            this.author_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.author_image.TabIndex = 14;
+            this.author_image.TabStop = false;
             // 
             // TopicDetailsPage
             // 
@@ -115,13 +138,15 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1600, 1429);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.fileLayoutPanel);
             this.Controls.Add(this.topic_date);
             this.Controls.Add(this.topic_details1);
             this.Controls.Add(this.author_name);
             this.Controls.Add(this.author_image);
             this.Controls.Add(this.topic_title);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "TopicDetailsPage";
             this.Text = "TopicDetails";
             ((System.ComponentModel.ISupportInitialize)(this.author_image)).EndInit();
@@ -137,6 +162,8 @@
         private System.Windows.Forms.Label author_name;
         private System.Windows.Forms.PictureBox author_image;
         private System.Windows.Forms.Label topic_title;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel fileLayoutPanel;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
     }
 }

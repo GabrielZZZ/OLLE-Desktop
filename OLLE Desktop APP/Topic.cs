@@ -12,6 +12,9 @@ namespace OLLE_Desktop_APP
 {
     public partial class Topic : UserControl
     {
+
+        public string files_url = "";
+
         public Topic()
         {
             InitializeComponent();
@@ -66,6 +69,7 @@ namespace OLLE_Desktop_APP
             set { author_image1.Image = value; }
 
         }
+        
 
         //change pictureBox picture
         public void ChangeAuthorImage(string url)
@@ -102,6 +106,9 @@ namespace OLLE_Desktop_APP
 
             //pass topic date to TopicDetailPage
             Detail_page.TopicDate = topic_date1.Text;
+
+            //add file panel
+            Detail_page.AddFilePanel(files_url);
 
             //show TopicDetailPage
             Detail_page.ShowDialog();
