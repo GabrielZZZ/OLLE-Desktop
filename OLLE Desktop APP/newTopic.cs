@@ -102,11 +102,12 @@ namespace OLLE_Desktop_APP
             string imageUrl3 = "";
             string videoUrl = "";
             string fileUrl = "";
-            string topic_tag = "0";
+            string topic_tag = "1";
             string language = "English";
             string token = Program.userData.token;
 
-
+            content = contentBox.Rtf;
+            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(content);
             //string paramStr = "{\"username\":\"admin\"," + "\"password\":\"admin123\"}";
 
             string paramStr = "{\"topic_title\":\"" + title + "\"," + 
@@ -222,6 +223,86 @@ namespace OLLE_Desktop_APP
 
             }
 
+        }
+
+        private void contentBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bold_Click(object sender, EventArgs e)
+        {
+            // make selected font bold
+            ChangeFontStyle(FontStyle.Bold);
+
+        }
+
+        private void ChangeFontStyle(FontStyle style)
+        {
+            if (style != FontStyle.Bold && style != FontStyle.Italic &&
+                style != FontStyle.Underline)
+                throw new System.InvalidProgramException("字体格式错误");
+            RichTextBox tempRichTextBox = new RichTextBox();  //将要存放被选中文本的副本  
+            int curRtbStart = contentBox.SelectionStart;
+            int len = contentBox.SelectionLength;
+            int tempRtbStart = 0;
+            Font font = contentBox.SelectionFont;
+            if (len <= 1 && font != null) //与上边的那段代码类似，功能相同  
+            {
+                if (style == FontStyle.Bold && font.Bold ||
+                    style == FontStyle.Italic && font.Italic ||
+                    style == FontStyle.Underline && font.Underline)
+                {
+                    contentBox.SelectionFont = new Font(font, font.Style ^ style);
+                }
+                else if (style == FontStyle.Bold && !font.Bold ||
+                         style == FontStyle.Italic && !font.Italic ||
+                         style == FontStyle.Underline && !font.Underline)
+                {
+                    contentBox.SelectionFont = new Font(font, font.Style | style);
+                }
+                return;
+            }
+            tempRichTextBox.Rtf = contentBox.SelectedRtf;
+            tempRichTextBox.Select(len - 1, 1); //选中副本中的最后一个文字  
+                                                //克隆被选中的文字Font，这个tempFont主要是用来判断  
+                                                //最终被选中的文字是否要加粗、去粗、斜体、去斜、下划线、去下划线  
+            Font tempFont = (Font)tempRichTextBox.SelectionFont.Clone();
+
+            //清空2和3  
+            for (int i = 0; i < len; i++)
+            {
+                tempRichTextBox.Select(tempRtbStart + i, 1);  //每次选中一个，逐个进行加粗或去粗  
+                if (style == FontStyle.Bold && tempFont.Bold ||
+                    style == FontStyle.Italic && tempFont.Italic ||
+                    style == FontStyle.Underline && tempFont.Underline)
+                {
+                    tempRichTextBox.SelectionFont =
+                        new Font(tempRichTextBox.SelectionFont,
+                                 tempRichTextBox.SelectionFont.Style ^ style);
+                }
+                else if (style == FontStyle.Bold && !tempFont.Bold ||
+                         style == FontStyle.Italic && !tempFont.Italic ||
+                         style == FontStyle.Underline && !tempFont.Underline)
+                {
+                    tempRichTextBox.SelectionFont =
+                        new Font(tempRichTextBox.SelectionFont,
+                                 tempRichTextBox.SelectionFont.Style | style);
+                }
+            }
+            tempRichTextBox.Select(tempRtbStart, len);
+            contentBox.SelectedRtf = tempRichTextBox.SelectedRtf; //将设置格式后的副本拷贝给原型  
+            contentBox.Select(curRtbStart, len);
+        }
+
+        private void italic_Click(object sender, EventArgs e)
+        {
+            ChangeFontStyle(FontStyle.Italic);
+        }
+
+        private void underline_button_Click(object sender, EventArgs e)
+        {
+            ChangeFontStyle(FontStyle.Underline);
         }
     }
 }

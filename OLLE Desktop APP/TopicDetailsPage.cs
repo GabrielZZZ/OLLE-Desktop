@@ -141,12 +141,21 @@ namespace OLLE_Desktop_APP
 
                 }
 
-                MessageBox.Show("Files download successfully!");
-                    
+                DialogResult dr = MessageBox.Show("Files download successfully! Click OK to open download folder.");
+                if (dr == DialogResult.OK)
+                {
+                    //点确定的代码
+                    //open file folder
+                    System.Diagnostics.Process.Start("explorer.exe", path);
+                }
+                else
+                {   //点取消的代码
+                    //do nothing
+
+                }
             }
+
         }
-
-
         
 
     }

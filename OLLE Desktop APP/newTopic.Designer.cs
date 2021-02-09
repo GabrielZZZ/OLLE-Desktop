@@ -38,6 +38,7 @@
             this.submitTopic = new System.Windows.Forms.Button();
             this.uploadFile = new System.Windows.Forms.Button();
             this.selectFilePanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.underline_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -78,6 +79,7 @@
             this.contentBox.Size = new System.Drawing.Size(1608, 694);
             this.contentBox.TabIndex = 3;
             this.contentBox.Text = "";
+            this.contentBox.TextChanged += new System.EventHandler(this.contentBox_TextChanged);
             // 
             // bold
             // 
@@ -89,6 +91,7 @@
             this.bold.TabIndex = 4;
             this.bold.Text = "B";
             this.bold.UseVisualStyleBackColor = false;
+            this.bold.Click += new System.EventHandler(this.bold_Click);
             // 
             // italic
             // 
@@ -100,6 +103,7 @@
             this.italic.TabIndex = 5;
             this.italic.Text = "I";
             this.italic.UseVisualStyleBackColor = false;
+            this.italic.Click += new System.EventHandler(this.italic_Click);
             // 
             // label3
             // 
@@ -143,12 +147,25 @@
             this.selectFilePanel.Size = new System.Drawing.Size(1242, 317);
             this.selectFilePanel.TabIndex = 9;
             // 
+            // underline_button
+            // 
+            this.underline_button.BackColor = System.Drawing.Color.White;
+            this.underline_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.underline_button.Location = new System.Drawing.Point(178, 307);
+            this.underline_button.Name = "underline_button";
+            this.underline_button.Size = new System.Drawing.Size(59, 43);
+            this.underline_button.TabIndex = 10;
+            this.underline_button.Text = "U";
+            this.underline_button.UseVisualStyleBackColor = false;
+            this.underline_button.Click += new System.EventHandler(this.underline_button_Click);
+            // 
             // newTopic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1686, 1529);
+            this.Controls.Add(this.underline_button);
             this.Controls.Add(this.selectFilePanel);
             this.Controls.Add(this.uploadFile);
             this.Controls.Add(this.submitTopic);
@@ -178,5 +195,6 @@
         private System.Windows.Forms.Button submitTopic;
         private System.Windows.Forms.Button uploadFile;
         private System.Windows.Forms.FlowLayoutPanel selectFilePanel;
+        private System.Windows.Forms.Button underline_button;
     }
 }
