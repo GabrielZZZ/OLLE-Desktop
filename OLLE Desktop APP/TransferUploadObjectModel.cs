@@ -233,39 +233,73 @@ namespace OLLE_Desktop_APP
             //.cssg-snippet-body-end
         }
 
+        public bool downloadFile(string url, string filePath)
+        {
+            try
+            {
+                string bucket = "olle2019-1257377975"; //存储桶，格式：BucketName-APPID
+                string key = url.Substring(56); //获取文件在存储桶里的相对路径，去掉前缀
+
+                string localDir = filePath;//本地文件夹
+                string localFileName = Path.GetFileName(url); //指定本地保存的文件名
+                GetObjectRequest request = new GetObjectRequest(bucket, key, localDir, localFileName);
+                //设置进度回调
+                request.SetCosProgressCallback(delegate (long completed, long total)
+                {
+                    Console.WriteLine(String.Format("progress = {0:##.##}%", completed * 100.0 / total));
+                });
+                //执行请求
+                GetObjectResult result = cosXml.GetObject(request);
+                //请求成功
+                Console.WriteLine(result.GetResultInfo());
+                return true;
+            }
+            catch (COSXML.CosException.CosClientException clientEx)
+            {
+                //请求失败
+                Console.WriteLine("CosClientException: " + clientEx);
+                return false;
+            }
+            catch (COSXML.CosException.CosServerException serverEx)
+            {
+                //请求失败
+                Console.WriteLine("CosServerException: " + serverEx.GetInfo());
+                return false;
+            }
+        }
 
         // .cssg-methods-pragma
 
-            /**
-        static void Main(string[] args)
-        {
-            TransferUploadObjectModel m = new TransferUploadObjectModel();
+        /**
+    static void Main(string[] args)
+    {
+        TransferUploadObjectModel m = new TransferUploadObjectModel();
 
-            /// 高级接口上传对象
-            m.TransferUploadFile();
+        /// 高级接口上传对象
+        m.TransferUploadFile();
 
-            /// 高级接口上传二进制数据
-            m.TransferUploadBytes();
+        /// 高级接口上传二进制数据
+        m.TransferUploadBytes();
 
-            /// 高级接口流式上传
-            m.TransferUploadStream();
+        /// 高级接口流式上传
+        m.TransferUploadStream();
 
-            /// 高级接口 URI 上传
-            m.TransferUploadUri();
+        /// 高级接口 URI 上传
+        m.TransferUploadUri();
 
-            /// 上传暂停续传取消
-            /// m.TransferUploadInteract();
+        /// 上传暂停续传取消
+        /// m.TransferUploadInteract();
 
-            /// 批量上传
-            m.TransferBatchUploadObjects();
+        /// 批量上传
+        m.TransferBatchUploadObjects();
 
-            /// 上传时对单链接限速
-            /// m.UploadObjectTrafficLimit();
+        /// 上传时对单链接限速
+        /// m.UploadObjectTrafficLimit();
 
-            /// 创建目录
-            m.CreateDirectory();
-            // .cssg-methods-pragma
-        }
-    **/
+        /// 创建目录
+        m.CreateDirectory();
+        // .cssg-methods-pragma
+    }
+**/
     }
 }

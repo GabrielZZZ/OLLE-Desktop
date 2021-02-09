@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,7 @@ namespace OLLE_Desktop_APP
     {
         List<string> src_path_total = new List<string>();
         List<string> file_path_total = new List<string>();
+        string[] files_url_split;
 
         public TopicDetailsPage()
         {
@@ -73,7 +75,7 @@ namespace OLLE_Desktop_APP
         // add file panel
         public void AddFilePanel(string files_url)
         {
-            string[] files_url_split = files_url.Split(';');
+            files_url_split = files_url.Split(';');
 
             // add fileIcon control in selectFilePanel
             for (int i = 0; i < files_url_split.Length-1; i++)
@@ -98,5 +100,54 @@ namespace OLLE_Desktop_APP
         {
 
         }
+
+        // download botton
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // open file explorer, select file path to save
+            FolderBrowserDialog openFolder = new FolderBrowserDialog();
+
+            //1、description属性，可以在对话框提供说明、描述、提醒等信息
+            openFolder.Description = "Please select folder to download files";
+
+            //2、RootFolder属性，可以设置对话框启动时的根目录,主要为C盘里的文件夹
+            //下面Desktop默认打开桌面
+            openFolder.RootFolder = Environment.SpecialFolder.Desktop;
+
+            //3、ShowNewFloderButton属性，是否在对话框中设置”新建文件夹“按钮
+            openFolder.ShowNewFolderButton = true;
+
+            //4、selectedPath属性，比较重要的属性，它是获取你选择的文件夹的路径，当然
+            //我们也可以记住我们每次需要打开的路径，可以避免每次都从桌面开始便利
+
+            //开始我们在btn_click()事件外定义一个空的字符串defaultfilePath
+
+            if (openFolder.ShowDialog() == DialogResult.OK)
+            {
+                //空就默认从桌面出发,然后获取点击的路径
+                string path = openFolder.SelectedPath;
+                TransferUploadObjectModel m = new TransferUploadObjectModel();
+
+                // download files under this path
+                for (int i = 0; i < files_url_split.Length - 1; i++)
+                {
+                    bool test = m.downloadFile(files_url_split[i], path);
+
+                    if (test == false)
+                    {
+                        MessageBox.Show("Files download error! Please retry later or contact administrator.");
+                        return;
+                    }
+
+                }
+
+                MessageBox.Show("Files download successfully!");
+                    
+            }
+        }
+
+
+        
+
     }
 }
