@@ -88,6 +88,12 @@
     <Compile Include="FileIcon.Designer.cs">
       <DependentUpon>FileIcon.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuPage.Designer.cs">
+      <DependentUpon>MenuPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransferUploadObjectModel.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuPage.resx">
+      <DependentUpon>MenuPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="newTopic.resx">
       <DependentUpon>newTopic.cs</DependentUpon>
@@ -183,6 +192,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\下载.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\my.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main_page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -40,8 +40,12 @@ namespace OLLE_Desktop_APP
                 }else
                 {
                     this.Hide();
-                    Forum forum = new Forum();
-                    forum.ShowDialog();
+                    //Forum forum = new Forum();
+                    //forum.ShowDialog();
+
+                    MenuPage menuPage = new MenuPage();
+                    menuPage.ShowDialog();
+
                     //forum.Show();
                     this.Close();
                 }
@@ -93,7 +97,11 @@ namespace OLLE_Desktop_APP
 
         }
 
-       
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
         /**
         public class UserData
         {
