@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Forum));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.NAAenable = new System.Windows.Forms.CheckBox();
             this.newTopic = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.NAAenable = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,12 +41,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(24, 18);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(628, 111);
+            this.label1.Size = new System.Drawing.Size(593, 108);
             this.label1.TabIndex = 0;
             this.label1.Text = "OLLE Forum";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -65,9 +65,22 @@
             this.panel1.Size = new System.Drawing.Size(1686, 148);
             this.panel1.TabIndex = 2;
             // 
+            // NAAenable
+            // 
+            this.NAAenable.AutoSize = true;
+            this.NAAenable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NAAenable.ForeColor = System.Drawing.Color.White;
+            this.NAAenable.Location = new System.Drawing.Point(1263, 107);
+            this.NAAenable.Name = "NAAenable";
+            this.NAAenable.Size = new System.Drawing.Size(93, 33);
+            this.NAAenable.TabIndex = 2;
+            this.NAAenable.Text = "NAA";
+            this.NAAenable.UseVisualStyleBackColor = true;
+            this.NAAenable.CheckedChanged += new System.EventHandler(this.NAAenable_CheckedChanged);
+            // 
             // newTopic
             // 
-            this.newTopic.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newTopic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newTopic.Location = new System.Drawing.Point(1462, 89);
             this.newTopic.Name = "newTopic";
             this.newTopic.Size = new System.Drawing.Size(202, 50);
@@ -85,19 +98,7 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1686, 990);
             this.flowLayoutPanel1.TabIndex = 5;
-            // 
-            // NAAenable
-            // 
-            this.NAAenable.AutoSize = true;
-            this.NAAenable.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NAAenable.ForeColor = System.Drawing.Color.White;
-            this.NAAenable.Location = new System.Drawing.Point(1263, 107);
-            this.NAAenable.Name = "NAAenable";
-            this.NAAenable.Size = new System.Drawing.Size(96, 32);
-            this.NAAenable.TabIndex = 2;
-            this.NAAenable.Text = "NAA";
-            this.NAAenable.UseVisualStyleBackColor = true;
-            this.NAAenable.CheckedChanged += new System.EventHandler(this.NAAenable_CheckedChanged);
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // Forum
             // 

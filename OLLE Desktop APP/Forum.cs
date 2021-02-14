@@ -150,6 +150,11 @@ namespace OLLE_Desktop_APP
 
         }
 
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         /**
         public class WrapperTopicClass
         {

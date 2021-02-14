@@ -34,5 +34,11 @@ namespace OLLE_Desktop_APP
             forum.ShowDialog();
             
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            MainPage mainPage = new MainPage();
+            mainPage.ShowDialog();
+        }
     }
 }

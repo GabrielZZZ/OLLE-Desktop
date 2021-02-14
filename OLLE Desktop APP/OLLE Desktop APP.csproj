@@ -88,6 +88,18 @@
     <Compile Include="FileIcon.Designer.cs">
       <DependentUpon>FileIcon.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainPage.Designer.cs">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainPageItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainPageItem.Designer.cs">
+      <DependentUpon>MainPageItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,11 +142,17 @@
     <EmbeddedResource Include="FileIcon.resx">
       <DependentUpon>FileIcon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainPage.resx">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forum.resx">
       <DependentUpon>Forum.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPageItem.resx">
+      <DependentUpon>MainPageItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPage.resx">
       <DependentUpon>MenuPage.cs</DependentUpon>
