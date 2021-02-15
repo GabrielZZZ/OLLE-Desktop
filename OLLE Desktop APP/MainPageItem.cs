@@ -35,7 +35,7 @@ namespace OLLE_Desktop_APP
             TopicDetailsPage Detail_page = new TopicDetailsPage();
 
             //pass image to TopicDetailPage
-            Detail_page.AuthorImage = global::OLLE_Desktop_APP.Properties.Resources.excel;
+            Detail_page.AuthorImage = global::OLLE_Desktop_APP.Properties.Resources.admin;
 
             //pass author name to TopicDetailPage
             Detail_page.TopicAuthor = "Admin";
@@ -50,7 +50,17 @@ namespace OLLE_Desktop_APP
             Detail_page.TopicDate = date;
 
             //add file panel
-            Detail_page.AddFilePanel(files_url);
+            if (files_url != "")
+            {
+                Detail_page.AddFilePanel(files_url);
+            } else
+            {
+                // not show file layout panel and download button if there are no files to download
+                Detail_page.fileLayoutPanel.Visible = false;
+                Detail_page.download_button.Visible = false;
+                Detail_page.label1.Visible = false;
+            }
+            
 
             //show TopicDetailPage
             Detail_page.ShowDialog();

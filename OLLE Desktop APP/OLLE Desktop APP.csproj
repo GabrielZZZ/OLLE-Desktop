@@ -106,6 +106,12 @@
     <Compile Include="MenuPage.Designer.cs">
       <DependentUpon>MenuPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reply.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reply.Designer.cs">
+      <DependentUpon>Reply.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransferUploadObjectModel.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -170,6 +176,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reply.resx">
+      <DependentUpon>Reply.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Topic.resx">
       <DependentUpon>Topic.cs</DependentUpon>
     </EmbeddedResource>
@@ -228,6 +237,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

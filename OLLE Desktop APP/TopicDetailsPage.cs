@@ -75,7 +75,11 @@ namespace OLLE_Desktop_APP
         // add file panel
         public void AddFilePanel(string files_url)
         {
+            
+
             files_url_split = files_url.Split(';');
+
+            
 
             // add fileIcon control in selectFilePanel
             for (int i = 0; i < files_url_split.Length-1; i++)
