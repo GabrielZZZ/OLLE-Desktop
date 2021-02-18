@@ -15,7 +15,7 @@ namespace OLLE_Desktop_APP
 {
     public partial class newTopic : Form
     {
-
+        public int post_type = 0; // this variable decides what kind of uploads should perform: new main page (1) or new forum topic (0)
         string file_names_total=""; // store all file names upload to the Database
         List<string> src_path_total = new List<string>();
         List<string> file_path_total = new List<string>();
@@ -67,7 +67,17 @@ namespace OLLE_Desktop_APP
 
             if ((title != "") && (content != ""))
             {
-                string post_result = post_user_info_new(title, content);//post login data
+                string post_result = "";
+                if (post_type == 0)
+                {
+                    post_result = post_user_info_new_topic(title, content);//post login data
+                }
+                else
+                {
+                    post_result = post_user_info_new_page(title, content);//post login data
+                }
+                
+
 
                 if (post_result.Equals("Wrong Password"))
                 {
@@ -88,9 +98,69 @@ namespace OLLE_Desktop_APP
             }
         }
 
-        private string post_user_info_new(string title, string content)
+        private string post_user_info_new_page(string title, string content)
+        {
+            string type = "createPage";
+
+
+            string url = Program.host_url + type;//地址
+            
+            int page_week = 0;
+            string page_date = DateTime.Now.ToShortDateString().ToString();//get current time
+            int user_id = Program.userData.user_id;
+            string post_username = Program.userData.username;
+            string profile_photo = Program.userData.profile_photo;
+            string imageUrl = "";
+            string imageUrl2 = "";
+            string imageUrl3 = "";
+            string videoUrl = "";
+            string fileUrl = "";
+            //string topic_tag = "1";
+            //string language = "English";
+            string token = Program.userData.token;
+
+            //content = contentBox.Rtf;
+            //byte[] bytes = System.Text.Encoding.UTF8.GetBytes(content);
+            //string paramStr = "{\"username\":\"admin\"," + "\"password\":\"admin123\"}";
+
+            string paramStr = "{\"page_title\":\"" + title + "\"," +
+                "\"token\":\"" + token + "\"," +
+                "\"page_week\":\"" + page_week + "\"," +
+                "\"page_date\":\"" + page_date + "\"," +
+                "\"user_id\":\"" + user_id + "\"," +
+                "\"post_username\":\"" + post_username + "\"," +
+                "\"imageUrl\":\"" + imageUrl + "\"," +
+                "\"imageUrl2\":\"" + imageUrl2 + "\"," +
+                "\"imageUrl3\":\"" + imageUrl3 + "\"," +
+                "\"videoUrl\":\"" + videoUrl + "\"," +
+                "\"files_url\":\"" + file_names_total + "\"," +
+                "\"profile_photo\":\"" + profile_photo + "\"," +
+                "\"page_detail\":\"" + content + "\"}";
+
+            string result = Program.PostToServer(url, paramStr, "POST");
+            TransferUploadObjectModel m = new TransferUploadObjectModel();
+            m.TransferBatchUploadObjects(file_path_total, src_path_total);
+
+
+            if (result.Contains("{\"error\""))
+            {
+                MessageBox.Show("Post Error!");
+                return "Post Error!";
+            }
+            else
+            {
+                //Program.userData = Program.TransferJson(result);
+                //no need to transfer json
+
+                return result;
+            }
+        }
+
+        private string post_user_info_new_topic(string title, string content)
         {
             string type = "postNewTopic";
+            
+            
             string url = Program.host_url + type;//地址
             string topic_id = "";
             string topic_week = "0";
@@ -106,8 +176,8 @@ namespace OLLE_Desktop_APP
             string language = "English";
             string token = Program.userData.token;
 
-            content = contentBox.Rtf;
-            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(content);
+            //content = contentBox.Rtf;
+            //byte[] bytes = System.Text.Encoding.UTF8.GetBytes(content);
             //string paramStr = "{\"username\":\"admin\"," + "\"password\":\"admin123\"}";
 
             string paramStr = "{\"topic_title\":\"" + title + "\"," + 

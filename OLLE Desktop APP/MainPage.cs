@@ -82,5 +82,18 @@ namespace OLLE_Desktop_APP
             }
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            newTopic new_topic = new newTopic();
+            new_topic.post_type = 1;
+            new_topic.ShowDialog();
+        }
+
+        private void refresh_button_Click(object sender, EventArgs e)
+        {
+            this.flowLayoutPanel1.Controls.Clear();
+            loadMainPages();
+        }
     }
 }
