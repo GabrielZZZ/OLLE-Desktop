@@ -38,6 +38,7 @@
             this.download_button = new System.Windows.Forms.Button();
             this.author_image = new System.Windows.Forms.PictureBox();
             this.replyPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.reply_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.author_image)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,10 +48,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.topic_date.AutoSize = true;
             this.topic_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.topic_date.Location = new System.Drawing.Point(26, 228);
-            this.topic_date.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.topic_date.Location = new System.Drawing.Point(17, 142);
+            this.topic_date.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.topic_date.Name = "topic_date";
-            this.topic_date.Size = new System.Drawing.Size(63, 29);
+            this.topic_date.Size = new System.Drawing.Size(39, 18);
             this.topic_date.TabIndex = 17;
             this.topic_date.Text = "Date";
             // 
@@ -60,11 +61,11 @@
             this.topic_details1.BackColor = System.Drawing.Color.White;
             this.topic_details1.Cursor = System.Windows.Forms.Cursors.Default;
             this.topic_details1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.topic_details1.Location = new System.Drawing.Point(198, 99);
-            this.topic_details1.Margin = new System.Windows.Forms.Padding(6);
+            this.topic_details1.Location = new System.Drawing.Point(132, 62);
+            this.topic_details1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.topic_details1.Name = "topic_details1";
             this.topic_details1.ReadOnly = true;
-            this.topic_details1.Size = new System.Drawing.Size(1388, 776);
+            this.topic_details1.Size = new System.Drawing.Size(927, 486);
             this.topic_details1.TabIndex = 16;
             this.topic_details1.Text = "Topic Details";
             this.topic_details1.TextChanged += new System.EventHandler(this.topic_details1_TextChanged);
@@ -73,10 +74,10 @@
             // 
             this.author_name.AutoSize = true;
             this.author_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.author_name.Location = new System.Drawing.Point(32, 160);
-            this.author_name.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.author_name.Location = new System.Drawing.Point(21, 100);
+            this.author_name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.author_name.Name = "author_name";
-            this.author_name.Size = new System.Drawing.Size(122, 44);
+            this.author_name.Size = new System.Drawing.Size(78, 29);
             this.author_name.TabIndex = 15;
             this.author_name.Text = "Name";
             // 
@@ -85,10 +86,10 @@
             this.topic_title.AutoSize = true;
             this.topic_title.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.topic_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.topic_title.Location = new System.Drawing.Point(198, 26);
-            this.topic_title.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.topic_title.Location = new System.Drawing.Point(132, 16);
+            this.topic_title.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.topic_title.Name = "topic_title";
-            this.topic_title.Size = new System.Drawing.Size(95, 46);
+            this.topic_title.Size = new System.Drawing.Size(63, 31);
             this.topic_title.TabIndex = 13;
             this.topic_title.Text = "Title";
             // 
@@ -97,17 +98,19 @@
             this.fileLayoutPanel.AutoScroll = true;
             this.fileLayoutPanel.BackColor = System.Drawing.Color.White;
             this.fileLayoutPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.fileLayoutPanel.Location = new System.Drawing.Point(198, 940);
+            this.fileLayoutPanel.Location = new System.Drawing.Point(132, 588);
+            this.fileLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.fileLayoutPanel.Name = "fileLayoutPanel";
-            this.fileLayoutPanel.Size = new System.Drawing.Size(1148, 196);
+            this.fileLayoutPanel.Size = new System.Drawing.Size(767, 124);
             this.fileLayoutPanel.TabIndex = 18;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1427, 1059);
+            this.label1.Location = new System.Drawing.Point(951, 662);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 24);
+            this.label1.Size = new System.Drawing.Size(71, 15);
             this.label1.TabIndex = 20;
             this.label1.Text = "download";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -117,9 +120,10 @@
             this.download_button.BackColor = System.Drawing.Color.White;
             this.download_button.BackgroundImage = global::OLLE_Desktop_APP.Properties.Resources.download;
             this.download_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.download_button.Location = new System.Drawing.Point(1427, 956);
+            this.download_button.Location = new System.Drawing.Point(951, 598);
+            this.download_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.download_button.Name = "download_button";
-            this.download_button.Size = new System.Drawing.Size(95, 93);
+            this.download_button.Size = new System.Drawing.Size(63, 58);
             this.download_button.TabIndex = 19;
             this.download_button.UseVisualStyleBackColor = false;
             this.download_button.Click += new System.EventHandler(this.button1_Click);
@@ -127,29 +131,45 @@
             // author_image
             // 
             this.author_image.Image = ((System.Drawing.Image)(resources.GetObject("author_image.Image")));
-            this.author_image.Location = new System.Drawing.Point(34, 26);
-            this.author_image.Margin = new System.Windows.Forms.Padding(6);
+            this.author_image.Location = new System.Drawing.Point(23, 16);
+            this.author_image.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.author_image.Name = "author_image";
-            this.author_image.Size = new System.Drawing.Size(124, 118);
+            this.author_image.Size = new System.Drawing.Size(83, 74);
             this.author_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.author_image.TabIndex = 14;
             this.author_image.TabStop = false;
             // 
             // replyPanel
             // 
+            this.replyPanel.AutoScroll = true;
             this.replyPanel.AutoSize = true;
-            this.replyPanel.Location = new System.Drawing.Point(198, 1170);
+            this.replyPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.replyPanel.Location = new System.Drawing.Point(132, 780);
+            this.replyPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.replyPanel.Name = "replyPanel";
-            this.replyPanel.Size = new System.Drawing.Size(1388, 231);
+            this.replyPanel.Size = new System.Drawing.Size(925, 175);
             this.replyPanel.TabIndex = 21;
+            this.replyPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.replyPanel_Paint);
+            // 
+            // reply_button
+            // 
+            this.reply_button.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reply_button.Location = new System.Drawing.Point(951, 739);
+            this.reply_button.Name = "reply_button";
+            this.reply_button.Size = new System.Drawing.Size(87, 36);
+            this.reply_button.TabIndex = 22;
+            this.reply_button.Text = "Reply";
+            this.reply_button.UseVisualStyleBackColor = true;
+            this.reply_button.Click += new System.EventHandler(this.reply_button_Click);
             // 
             // TopicDetailsPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1600, 1429);
+            this.ClientSize = new System.Drawing.Size(1067, 966);
+            this.Controls.Add(this.reply_button);
             this.Controls.Add(this.replyPanel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.download_button);
@@ -159,9 +179,10 @@
             this.Controls.Add(this.author_name);
             this.Controls.Add(this.author_image);
             this.Controls.Add(this.topic_title);
-            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "TopicDetailsPage";
             this.Text = "TopicDetails";
+            this.Load += new System.EventHandler(this.TopicDetailsPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.author_image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -179,5 +200,6 @@
         public System.Windows.Forms.Button download_button;
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel replyPanel;
+        private System.Windows.Forms.Button reply_button;
     }
 }

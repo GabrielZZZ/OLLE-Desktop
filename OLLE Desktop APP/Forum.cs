@@ -144,7 +144,7 @@ namespace OLLE_Desktop_APP
                 test1.TopicTitle = myDeserializedClass.TopicsData[i].topic_title;
                 test1.TopicDetails = myDeserializedClass.TopicsData[i].topic_detail;
                 test1.TopicDate = myDeserializedClass.TopicsData[i].topic_date;
-
+                test1.topic_id = myDeserializedClass.TopicsData[i].topic_id;
                 this.flowLayoutPanel1.Controls.Add(test1);
             }
 

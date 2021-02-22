@@ -14,6 +14,7 @@ namespace OLLE_Desktop_APP
     {
 
         public string files_url = "";
+        public int topic_id;
 
         public Topic()
         {
@@ -106,6 +107,9 @@ namespace OLLE_Desktop_APP
 
             //pass topic date to TopicDetailPage
             Detail_page.TopicDate = topic_date1.Text;
+
+            //pass topic id
+            Detail_page.topic_id = topic_id;
 
             //add file panel
             if (files_url != "")

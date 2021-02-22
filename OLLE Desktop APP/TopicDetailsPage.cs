@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 using System.Windows.Forms;
 
 namespace OLLE_Desktop_APP
@@ -17,6 +18,7 @@ namespace OLLE_Desktop_APP
         List<string> src_path_total = new List<string>();
         List<string> file_path_total = new List<string>();
         string[] files_url_split;
+        public int topic_id;
 
         public TopicDetailsPage()
         {
@@ -160,7 +162,88 @@ namespace OLLE_Desktop_APP
             }
 
         }
-        
 
+        private void reply_button_Click(object sender, EventArgs e)
+        {
+            PostReply postReply = new PostReply();
+            postReply.topic_id = topic_id;
+            postReply.ShowDialog();
+        }
+
+        private void replyPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
+        public class PostedReplyData
+        {
+            public string post_id { get; set; }
+            public string topic_id { get; set; }
+            public string username { get; set; }
+            public string user_post { get; set; }
+            public string post_date { get; set; }
+            public string parent_id { get; set; }
+            public string language { get; set; }
+            public string profile_photo { get; set; }
+            public string top { get; set; }
+        }
+
+        public class Root
+        {
+            public List<PostedReplyData> PostedReplyData { get; set; }
+        }
+
+
+
+        private void TopicDetailsPage_Load(object sender, EventArgs e)
+        {
+            string parent_id = "0";
+            //get replies
+            string type = "getPostedReply";
+            string url = Program.host_url + type;//地址
+
+            //string paramStr = "{\"username\":\"admin\"," + "\"password\":\"admin123\"}";
+
+            string paramStr = "{\"parent_id\":\"" + parent_id + "\"," +
+                                  "\"topic_id\":\"" + topic_id + "\"}";
+
+            string result = Program.PostToServer(url, paramStr, "POST");
+
+
+
+            if (result.Contains("error"))
+            {
+                string errorMessage = result.Substring(19);
+                errorMessage = Program.Reverse(errorMessage);
+                errorMessage = errorMessage.Substring(4);
+                errorMessage = Program.Reverse(errorMessage);
+
+                //errorMessage.Remove()
+                MessageBox.Show(errorMessage);
+                return;
+            }else
+            {
+                JavaScriptSerializer js = new JavaScriptSerializer();
+
+                Root myDeserializedClass = js.Deserialize<Root>(result);
+
+
+                //create topics panel
+                for (int i = 0; i < myDeserializedClass.PostedReplyData.Count; i++)
+                {
+                    //UserControl1 test = new UserControl1();
+                    Reply test = new Reply();
+                    //test.AuthorImage = Image.FromStream(myDeserializedClass.TopicsData[i].imageUrl);
+                    test.ChangeAuthorImage(myDeserializedClass.PostedReplyData[i].profile_photo);
+                    test.TopicAuthor = myDeserializedClass.PostedReplyData[i].username;
+                 
+                    test.TopicDetails = myDeserializedClass.PostedReplyData[i].user_post;
+                    test.TopicDate = myDeserializedClass.PostedReplyData[i].post_date;
+                    
+                    this.replyPanel.Controls.Add(test);
+                }
+                return;
+            }
+        }
     }
 }

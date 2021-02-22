@@ -40,10 +40,10 @@
             // 
             this.topic_date1.AutoSize = true;
             this.topic_date1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.topic_date1.Location = new System.Drawing.Point(24, 225);
-            this.topic_date1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.topic_date1.Location = new System.Drawing.Point(16, 141);
+            this.topic_date1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.topic_date1.Name = "topic_date1";
-            this.topic_date1.Size = new System.Drawing.Size(75, 32);
+            this.topic_date1.Size = new System.Drawing.Size(48, 22);
             this.topic_date1.TabIndex = 26;
             this.topic_date1.Text = "Date";
             // 
@@ -51,20 +51,20 @@
             // 
             this.author_name.AutoSize = true;
             this.author_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.author_name.Location = new System.Drawing.Point(23, 157);
-            this.author_name.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.author_name.Location = new System.Drawing.Point(15, 98);
+            this.author_name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.author_name.Name = "author_name";
-            this.author_name.Size = new System.Drawing.Size(122, 44);
+            this.author_name.Size = new System.Drawing.Size(78, 29);
             this.author_name.TabIndex = 25;
             this.author_name.Text = "Name";
             // 
             // author_image
             // 
             this.author_image.Image = ((System.Drawing.Image)(resources.GetObject("author_image.Image")));
-            this.author_image.Location = new System.Drawing.Point(28, 23);
-            this.author_image.Margin = new System.Windows.Forms.Padding(6);
+            this.author_image.Location = new System.Drawing.Point(19, 14);
+            this.author_image.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.author_image.Name = "author_image";
-            this.author_image.Size = new System.Drawing.Size(124, 118);
+            this.author_image.Size = new System.Drawing.Size(83, 74);
             this.author_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.author_image.TabIndex = 24;
             this.author_image.TabStop = false;
@@ -73,23 +73,26 @@
             // 
             this.topic_details.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.topic_details.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.topic_details.Location = new System.Drawing.Point(186, 23);
-            this.topic_details.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.topic_details.Location = new System.Drawing.Point(124, 14);
+            this.topic_details.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.topic_details.Name = "topic_details";
-            this.topic_details.Size = new System.Drawing.Size(1175, 234);
+            this.topic_details.Size = new System.Drawing.Size(755, 146);
             this.topic_details.TabIndex = 27;
             this.topic_details.Text = "Topic Details";
             // 
             // Reply
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(this.topic_details);
             this.Controls.Add(this.topic_date1);
             this.Controls.Add(this.author_name);
             this.Controls.Add(this.author_image);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Reply";
-            this.Size = new System.Drawing.Size(1388, 300);
+            this.Size = new System.Drawing.Size(896, 175);
             ((System.ComponentModel.ISupportInitialize)(this.author_image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

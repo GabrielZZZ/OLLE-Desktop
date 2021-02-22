@@ -106,6 +106,12 @@
     <Compile Include="MenuPage.Designer.cs">
       <DependentUpon>MenuPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="PostReply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PostReply.Designer.cs">
+      <DependentUpon>PostReply.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reply.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="newTopic.resx">
       <DependentUpon>newTopic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PostReply.resx">
+      <DependentUpon>PostReply.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

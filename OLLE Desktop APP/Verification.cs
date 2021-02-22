@@ -35,9 +35,16 @@ namespace OLLE_Desktop_APP
 
 
 
-            if (result.Equals("{\"error\":{\"text\":\"Bad request wrong username and password \"}}"))
+            if (result.Contains("error"))
             {
+                string errorMessage = result.Substring(19);
+                errorMessage = Program.Reverse(errorMessage);
+                errorMessage = errorMessage.Substring(4);
+                errorMessage = Program.Reverse(errorMessage);
 
+                //errorMessage.Remove()
+                MessageBox.Show(errorMessage);
+                return;
             }
             else
             {
