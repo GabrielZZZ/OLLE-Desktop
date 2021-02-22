@@ -67,7 +67,7 @@ namespace OLLE_Desktop_APP
 
             req.Method = Method;
 
-            req.Timeout = 8000;//设置请求超时时间，单位为毫秒
+            req.Timeout = 80000;//设置请求超时时间，单位为毫秒
 
             req.ContentType = "application/json";
         
@@ -100,6 +100,14 @@ namespace OLLE_Desktop_APP
             }
 
             
+        }
+
+        //reverse string
+        public static string Reverse(string str)
+        {
+            char[] arr = str.ToCharArray();
+            Array.Reverse(arr);
+            return new string(arr);
         }
 
         public static UserData userData;//global user data

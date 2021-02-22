@@ -112,6 +112,12 @@
     <Compile Include="Reply.Designer.cs">
       <DependentUpon>Reply.cs</DependentUpon>
     </Compile>
+    <Compile Include="SignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignUp.Designer.cs">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransferUploadObjectModel.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -144,6 +150,12 @@
     </Compile>
     <Compile Include="TopicDetailsPage.Designer.cs">
       <DependentUpon>TopicDetailsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Verification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Verification.Designer.cs">
+      <DependentUpon>Verification.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FileIcon.resx">
       <DependentUpon>FileIcon.cs</DependentUpon>
@@ -179,11 +191,17 @@
     <EmbeddedResource Include="Reply.resx">
       <DependentUpon>Reply.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="signUp.resx">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Topic.resx">
       <DependentUpon>Topic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TopicDetailsPage.resx">
       <DependentUpon>TopicDetailsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Verification.resx">
+      <DependentUpon>Verification.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

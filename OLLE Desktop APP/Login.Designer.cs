@@ -34,15 +34,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.register_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(302, 402);
-            this.button1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.button1.Location = new System.Drawing.Point(93, 232);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 46);
+            this.button1.Size = new System.Drawing.Size(100, 29);
             this.button1.TabIndex = 0;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = true;
@@ -50,30 +51,30 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(302, 162);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.textBox1.Location = new System.Drawing.Point(201, 101);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(196, 35);
+            this.textBox1.Size = new System.Drawing.Size(132, 25);
             this.textBox1.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(134, 168);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Location = new System.Drawing.Point(89, 105);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 29);
+            this.label1.Size = new System.Drawing.Size(77, 18);
             this.label1.TabIndex = 2;
             this.label1.Text = "Username";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(302, 256);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.textBox2.Location = new System.Drawing.Point(201, 160);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(196, 35);
+            this.textBox2.Size = new System.Drawing.Size(132, 25);
             this.textBox2.TabIndex = 3;
             this.textBox2.UseSystemPasswordChar = true;
             // 
@@ -81,27 +82,40 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(134, 260);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Location = new System.Drawing.Point(89, 162);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 29);
+            this.label2.Size = new System.Drawing.Size(75, 18);
             this.label2.TabIndex = 4;
             this.label2.Text = "Password";
             // 
+            // register_button
+            // 
+            this.register_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.register_button.Location = new System.Drawing.Point(93, 276);
+            this.register_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.register_button.Name = "register_button";
+            this.register_button.Size = new System.Drawing.Size(100, 29);
+            this.register_button.TabIndex = 5;
+            this.register_button.Text = "Register";
+            this.register_button.UseVisualStyleBackColor = true;
+            this.register_button.Click += new System.EventHandler(this.register_button_Click);
+            // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1600, 900);
+            this.ClientSize = new System.Drawing.Size(1067, 562);
+            this.Controls.Add(this.register_button);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
@@ -118,6 +132,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button register_button;
     }
 }
 

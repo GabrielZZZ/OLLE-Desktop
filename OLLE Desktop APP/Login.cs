@@ -102,6 +102,12 @@ namespace OLLE_Desktop_APP
 
         }
 
+        private void register_button_Click(object sender, EventArgs e)
+        {
+            SignUp signup = new SignUp();
+            signup.ShowDialog();
+        }
+
         /**
         public class UserData
         {
