@@ -40,5 +40,12 @@ namespace OLLE_Desktop_APP
             MainPage mainPage = new MainPage();
             mainPage.ShowDialog();
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            CalendarPage calendarPage = new CalendarPage();
+            calendarPage.ShowDialog();
+
+        }
     }
 }

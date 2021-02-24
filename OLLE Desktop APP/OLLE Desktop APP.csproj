@@ -82,6 +82,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalendarEvent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CalendarEvent.Designer.cs">
+      <DependentUpon>CalendarEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalendarPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalendarPage.Designer.cs">
+      <DependentUpon>CalendarPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FileIcon.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -163,6 +175,12 @@
     <Compile Include="Verification.Designer.cs">
       <DependentUpon>Verification.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CalendarEvent.resx">
+      <DependentUpon>CalendarEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalendarPage.resx">
+      <DependentUpon>CalendarPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FileIcon.resx">
       <DependentUpon>FileIcon.cs</DependentUpon>
     </EmbeddedResource>
