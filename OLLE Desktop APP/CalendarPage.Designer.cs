@@ -84,6 +84,7 @@
             this.refresh_button.Text = "↻";
             this.refresh_button.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.refresh_button.UseVisualStyleBackColor = true;
+            this.refresh_button.Click += new System.EventHandler(this.refresh_button_Click);
             // 
             // button1
             // 
@@ -103,9 +104,11 @@
             this.monthCalendar1.Location = new System.Drawing.Point(16, 145);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 3;
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // eventPanel
             // 
+            this.eventPanel.AutoScroll = true;
             this.eventPanel.BackColor = System.Drawing.Color.Transparent;
             this.eventPanel.Location = new System.Drawing.Point(530, 91);
             this.eventPanel.Name = "eventPanel";
@@ -126,6 +129,7 @@
             this.Name = "CalendarPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CalendarPage";
+            this.Load += new System.EventHandler(this.CalendarPage_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
