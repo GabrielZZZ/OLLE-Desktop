@@ -30,9 +30,9 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.refresh_button = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.eventPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
@@ -64,6 +64,13 @@
             this.panel1.Size = new System.Drawing.Size(1124, 92);
             this.panel1.TabIndex = 2;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(617, 97);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(507, 613);
+            this.flowLayoutPanel1.TabIndex = 3;
+            // 
             // refresh_button
             // 
             this.refresh_button.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -88,13 +95,6 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "  Publish";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(617, 97);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(507, 613);
-            this.flowLayoutPanel1.TabIndex = 3;
             // 
             // monthCalendar1
             // 
@@ -124,6 +124,7 @@
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.panel1);
             this.Name = "CalendarPage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CalendarPage";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

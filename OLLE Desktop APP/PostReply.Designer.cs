@@ -60,6 +60,7 @@
             this.Controls.Add(this.post_reply_button);
             this.Controls.Add(this.reply_content);
             this.Name = "PostReply";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PostReply";
             this.ResumeLayout(false);
             this.PerformLayout();

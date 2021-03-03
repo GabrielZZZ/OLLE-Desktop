@@ -47,11 +47,12 @@
             this.topic_date.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.topic_date.AutoSize = true;
-            this.topic_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.topic_date.Location = new System.Drawing.Point(17, 142);
+            this.topic_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.topic_date.Location = new System.Drawing.Point(17, 139);
             this.topic_date.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.topic_date.MaximumSize = new System.Drawing.Size(85, 0);
             this.topic_date.Name = "topic_date";
-            this.topic_date.Size = new System.Drawing.Size(39, 18);
+            this.topic_date.Size = new System.Drawing.Size(33, 15);
             this.topic_date.TabIndex = 17;
             this.topic_date.Text = "Date";
             // 
@@ -62,7 +63,7 @@
             this.topic_details1.Cursor = System.Windows.Forms.Cursors.Default;
             this.topic_details1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.topic_details1.Location = new System.Drawing.Point(132, 62);
-            this.topic_details1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.topic_details1.Margin = new System.Windows.Forms.Padding(4);
             this.topic_details1.Name = "topic_details1";
             this.topic_details1.ReadOnly = true;
             this.topic_details1.Size = new System.Drawing.Size(927, 486);
@@ -99,7 +100,7 @@
             this.fileLayoutPanel.BackColor = System.Drawing.Color.White;
             this.fileLayoutPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.fileLayoutPanel.Location = new System.Drawing.Point(132, 588);
-            this.fileLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fileLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
             this.fileLayoutPanel.Name = "fileLayoutPanel";
             this.fileLayoutPanel.Size = new System.Drawing.Size(767, 124);
             this.fileLayoutPanel.TabIndex = 18;
@@ -121,7 +122,7 @@
             this.download_button.BackgroundImage = global::OLLE_Desktop_APP.Properties.Resources.download;
             this.download_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.download_button.Location = new System.Drawing.Point(951, 598);
-            this.download_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.download_button.Margin = new System.Windows.Forms.Padding(2);
             this.download_button.Name = "download_button";
             this.download_button.Size = new System.Drawing.Size(63, 58);
             this.download_button.TabIndex = 19;
@@ -132,7 +133,7 @@
             // 
             this.author_image.Image = ((System.Drawing.Image)(resources.GetObject("author_image.Image")));
             this.author_image.Location = new System.Drawing.Point(23, 16);
-            this.author_image.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.author_image.Margin = new System.Windows.Forms.Padding(4);
             this.author_image.Name = "author_image";
             this.author_image.Size = new System.Drawing.Size(83, 74);
             this.author_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -145,7 +146,7 @@
             this.replyPanel.AutoSize = true;
             this.replyPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.replyPanel.Location = new System.Drawing.Point(132, 780);
-            this.replyPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.replyPanel.Margin = new System.Windows.Forms.Padding(2);
             this.replyPanel.Name = "replyPanel";
             this.replyPanel.Size = new System.Drawing.Size(925, 175);
             this.replyPanel.TabIndex = 21;
@@ -179,7 +180,7 @@
             this.Controls.Add(this.author_name);
             this.Controls.Add(this.author_image);
             this.Controls.Add(this.topic_title);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TopicDetailsPage";
             this.Text = "TopicDetails";
             this.Load += new System.EventHandler(this.TopicDetailsPage_Load);

@@ -236,6 +236,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "SignUp";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sign Up";
             ((System.ComponentModel.ISupportInitialize)(this.profile_photo_box)).EndInit();
             this.ResumeLayout(false);
