@@ -155,6 +155,21 @@ namespace OLLE_Desktop_APP
 
         }
 
+        private void refresh_button_Click(object sender, EventArgs e)
+        {
+            this.flowLayoutPanel1.Controls.Clear();
+            if (NAAenable.Checked == true)
+            {
+                loadNAAEvent();
+            }
+            else
+            {
+                loadNormalEvent();
+
+            }
+
+        }
+
         /**
         public class WrapperTopicClass
         {

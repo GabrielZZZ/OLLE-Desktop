@@ -223,25 +223,32 @@ namespace OLLE_Desktop_APP
                 return;
             }else
             {
-                JavaScriptSerializer js = new JavaScriptSerializer();
-
-                Root myDeserializedClass = js.Deserialize<Root>(result);
-
-
-                //create topics panel
-                for (int i = 0; i < myDeserializedClass.PostedReplyData.Count; i++)
+                if (result != "{\"PostedReplyData\": \"\"}")
                 {
-                    //UserControl1 test = new UserControl1();
-                    Reply test = new Reply();
-                    //test.AuthorImage = Image.FromStream(myDeserializedClass.TopicsData[i].imageUrl);
-                    test.ChangeAuthorImage(myDeserializedClass.PostedReplyData[i].profile_photo);
-                    test.TopicAuthor = myDeserializedClass.PostedReplyData[i].username;
-                 
-                    test.TopicDetails = myDeserializedClass.PostedReplyData[i].user_post;
-                    test.TopicDate = myDeserializedClass.PostedReplyData[i].post_date;
-                    
-                    this.replyPanel.Controls.Add(test);
+                    JavaScriptSerializer js = new JavaScriptSerializer();
+
+                    Root myDeserializedClass = js.Deserialize<Root>(result);
+
+                    if (myDeserializedClass != null)
+                    {
+                        //create topics panel
+                        for (int i = 0; i < myDeserializedClass.PostedReplyData.Count; i++)
+                        {
+                            //UserControl1 test = new UserControl1();
+                            Reply test = new Reply();
+                            //test.AuthorImage = Image.FromStream(myDeserializedClass.TopicsData[i].imageUrl);
+                            test.ChangeAuthorImage(myDeserializedClass.PostedReplyData[i].profile_photo);
+                            test.TopicAuthor = myDeserializedClass.PostedReplyData[i].username;
+
+                            test.TopicDetails = myDeserializedClass.PostedReplyData[i].user_post;
+                            test.TopicDate = myDeserializedClass.PostedReplyData[i].post_date;
+
+                            this.replyPanel.Controls.Add(test);
+                        }
+                    }
                 }
+                
+                
                 return;
             }
         }
