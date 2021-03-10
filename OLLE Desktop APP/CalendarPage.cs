@@ -24,6 +24,13 @@ namespace OLLE_Desktop_APP
         private void CalendarPage_Load(object sender, EventArgs e)
         {
             loadCalendarEvents();
+
+            // clear the panel first
+            this.eventPanel.Controls.Clear();
+            // get the current date
+            DateTime selected_time = monthCalendar1.SelectionStart;
+
+            getCalendarEvents(selected_time);
         }
 
         // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
@@ -62,10 +69,16 @@ namespace OLLE_Desktop_APP
         {
             // clear the panel first
             this.eventPanel.Controls.Clear();
-
             // get the current date
             DateTime selected_time = monthCalendar1.SelectionStart;
 
+            getCalendarEvents(selected_time);
+
+        }
+
+        private void getCalendarEvents(DateTime selected_time)
+        {
+            
 
             //create topics panel
             for (int i = 0; i < myDeserializedClass.fData.Count; i++)
@@ -79,11 +92,18 @@ namespace OLLE_Desktop_APP
 
                 DateTime dt_start, dt_end;
 
+                
+
                 DateTimeFormatInfo dtFormat = new System.Globalization.DateTimeFormatInfo();
 
-                dtFormat.ShortDatePattern = "yyyy/MM/dd";
+                dtFormat.ShortDatePattern = "yyyy/MM/dd hh:mm:ss";
 
-                dt_start = Convert.ToDateTime(myDeserializedClass.fData[i].startTime, dtFormat);
+                string test1 = myDeserializedClass.fData[i].startTime;
+
+
+
+                dt_start = Convert.ToDateTime(myDeserializedClass.fData[i].endTime, dtFormat);
+                //dt_start = DateTime.ParseExact(test1, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
                 dt_end = Convert.ToDateTime(myDeserializedClass.fData[i].endTime, dtFormat);
 
                 TimeSpan time_remaining = dt_end - dt_start;
@@ -98,13 +118,19 @@ namespace OLLE_Desktop_APP
                 {
                     this.eventPanel.Controls.Add(test);
                 }
-                
+
             }
         }
 
         private void refresh_button_Click(object sender, EventArgs e)
         {
             loadCalendarEvents();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CalendarCreate createEvent = new CalendarCreate();
+            createEvent.ShowDialog();
         }
     }
 }
