@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Forum));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.refresh_button = new System.Windows.Forms.Button();
             this.NAAenable = new System.Windows.Forms.CheckBox();
             this.newTopic = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.refresh_button = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,10 +62,25 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1124, 92);
             this.panel1.TabIndex = 2;
+            // 
+            // refresh_button
+            // 
+            this.refresh_button.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refresh_button.ForeColor = System.Drawing.Color.Black;
+            this.refresh_button.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.refresh_button.Location = new System.Drawing.Point(923, 56);
+            this.refresh_button.Margin = new System.Windows.Forms.Padding(4);
+            this.refresh_button.Name = "refresh_button";
+            this.refresh_button.Size = new System.Drawing.Size(36, 28);
+            this.refresh_button.TabIndex = 4;
+            this.refresh_button.Text = "↻";
+            this.refresh_button.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.refresh_button.UseVisualStyleBackColor = true;
+            this.refresh_button.Click += new System.EventHandler(this.refresh_button_Click);
             // 
             // NAAenable
             // 
@@ -73,7 +88,7 @@
             this.NAAenable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NAAenable.ForeColor = System.Drawing.Color.White;
             this.NAAenable.Location = new System.Drawing.Point(848, 58);
-            this.NAAenable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NAAenable.Margin = new System.Windows.Forms.Padding(2);
             this.NAAenable.Name = "NAAenable";
             this.NAAenable.Size = new System.Drawing.Size(59, 22);
             this.NAAenable.TabIndex = 2;
@@ -85,7 +100,7 @@
             // 
             this.newTopic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newTopic.Location = new System.Drawing.Point(975, 56);
-            this.newTopic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newTopic.Margin = new System.Windows.Forms.Padding(2);
             this.newTopic.Name = "newTopic";
             this.newTopic.Size = new System.Drawing.Size(135, 31);
             this.newTopic.TabIndex = 1;
@@ -104,21 +119,6 @@
             this.flowLayoutPanel1.TabIndex = 5;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
-            // refresh_button
-            // 
-            this.refresh_button.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refresh_button.ForeColor = System.Drawing.Color.Black;
-            this.refresh_button.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.refresh_button.Location = new System.Drawing.Point(923, 56);
-            this.refresh_button.Margin = new System.Windows.Forms.Padding(4);
-            this.refresh_button.Name = "refresh_button";
-            this.refresh_button.Size = new System.Drawing.Size(36, 28);
-            this.refresh_button.TabIndex = 4;
-            this.refresh_button.Text = "↻";
-            this.refresh_button.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.refresh_button.UseVisualStyleBackColor = true;
-            this.refresh_button.Click += new System.EventHandler(this.refresh_button_Click);
-            // 
             // Forum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -130,7 +130,8 @@
             this.ClientSize = new System.Drawing.Size(1124, 711);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Forum";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Forum";

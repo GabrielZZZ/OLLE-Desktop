@@ -164,6 +164,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.startTimePicker_date);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CalendarCreate";
             this.Text = "CalendarCreate";
             this.ResumeLayout(false);

@@ -112,6 +112,9 @@ namespace OLLE_Desktop_APP
             Detail_page.topic_id = topic_id;
 
             //add file panel
+            Detail_page.AddFilePanel(files_url);
+
+            /**
             if (files_url != "")
             {
                 Detail_page.AddFilePanel(files_url);
@@ -123,6 +126,7 @@ namespace OLLE_Desktop_APP
                 Detail_page.download_button.Visible = false;
                 Detail_page.label1.Visible = false;
             }
+            **/
 
             //show TopicDetailPage
             Detail_page.ShowDialog();

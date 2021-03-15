@@ -77,7 +77,14 @@ namespace OLLE_Desktop_APP
         // add file panel
         public void AddFilePanel(string files_url)
         {
-            
+            if (files_url =="")
+            {
+                Label label2 = new Label();
+                label2.Text = "There is nothing here";
+                label2.AutoSize = true;
+                fileLayoutPanel.Controls.Add(label2);
+                return;
+            }
 
             files_url_split = files_url.Split(';');
 
@@ -247,8 +254,15 @@ namespace OLLE_Desktop_APP
                         }
                     }
                 }
-                
-                
+                else
+                {
+                    Label label1 = new Label();
+                    label1.Text = "There is nothing here";
+                    label1.AutoSize = true;
+                    this.replyPanel.Controls.Add(label1);
+                }
+
+
                 return;
             }
         }

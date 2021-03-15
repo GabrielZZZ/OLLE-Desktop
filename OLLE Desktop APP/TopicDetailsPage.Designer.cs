@@ -143,8 +143,6 @@
             // replyPanel
             // 
             this.replyPanel.AutoScroll = true;
-            this.replyPanel.AutoSize = true;
-            this.replyPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.replyPanel.Location = new System.Drawing.Point(132, 780);
             this.replyPanel.Margin = new System.Windows.Forms.Padding(2);
             this.replyPanel.Name = "replyPanel";
@@ -180,6 +178,7 @@
             this.Controls.Add(this.author_name);
             this.Controls.Add(this.author_image);
             this.Controls.Add(this.topic_title);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TopicDetailsPage";
             this.Text = "TopicDetails";

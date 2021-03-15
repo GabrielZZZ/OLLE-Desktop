@@ -61,7 +61,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 1);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1124, 92);
+            this.panel1.Size = new System.Drawing.Size(900, 92);
             this.panel1.TabIndex = 2;
             // 
             // flowLayoutPanel1
@@ -76,7 +76,7 @@
             this.refresh_button.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refresh_button.ForeColor = System.Drawing.Color.Black;
             this.refresh_button.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.refresh_button.Location = new System.Drawing.Point(952, 55);
+            this.refresh_button.Location = new System.Drawing.Point(740, 55);
             this.refresh_button.Margin = new System.Windows.Forms.Padding(4);
             this.refresh_button.Name = "refresh_button";
             this.refresh_button.Size = new System.Drawing.Size(36, 28);
@@ -89,7 +89,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(996, 55);
+            this.button1.Location = new System.Drawing.Point(784, 54);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 29);
@@ -102,7 +102,7 @@
             // 
             this.monthCalendar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.monthCalendar1.ForeColor = System.Drawing.Color.DarkRed;
-            this.monthCalendar1.Location = new System.Drawing.Point(16, 145);
+            this.monthCalendar1.Location = new System.Drawing.Point(34, 136);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 3;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
@@ -111,9 +111,9 @@
             // 
             this.eventPanel.AutoScroll = true;
             this.eventPanel.BackColor = System.Drawing.Color.Transparent;
-            this.eventPanel.Location = new System.Drawing.Point(530, 91);
+            this.eventPanel.Location = new System.Drawing.Point(361, 91);
             this.eventPanel.Name = "eventPanel";
-            this.eventPanel.Size = new System.Drawing.Size(594, 620);
+            this.eventPanel.Size = new System.Drawing.Size(539, 512);
             this.eventPanel.TabIndex = 4;
             // 
             // CalendarPage
@@ -123,10 +123,11 @@
             this.AutoSize = true;
             this.BackgroundImage = global::OLLE_Desktop_APP.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1124, 708);
+            this.ClientSize = new System.Drawing.Size(901, 600);
             this.Controls.Add(this.eventPanel);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CalendarPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CalendarPage";

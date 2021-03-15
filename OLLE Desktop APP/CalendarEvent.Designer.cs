@@ -132,7 +132,7 @@
             this.Controls.Add(this.event_name);
             this.Controls.Add(this.label1);
             this.Name = "CalendarEvent";
-            this.Size = new System.Drawing.Size(590, 221);
+            this.Size = new System.Drawing.Size(533, 221);
             this.ResumeLayout(false);
             this.PerformLayout();
 
