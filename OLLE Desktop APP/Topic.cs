@@ -15,6 +15,8 @@ namespace OLLE_Desktop_APP
 
         public string files_url = "";
         public int topic_id;
+        public int topic_type;
+
 
         public Topic()
         {

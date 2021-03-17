@@ -85,7 +85,7 @@ namespace OLLE_Desktop_APP
 
         private void button1_Click(object sender, EventArgs e)
         {
-            newTopic new_topic = new newTopic();
+            newTopic new_topic = new newTopic(0);
             new_topic.post_type = 1;
             new_topic.ShowDialog();
         }

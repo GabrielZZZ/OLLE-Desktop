@@ -14,8 +14,12 @@ namespace OLLE_Desktop_APP
 {
     public partial class Forum : Form
     {
-        public Forum()
+
+        private int forum_index; // the number decides the category of the forum -> refer to the item in the menu page
+
+        public Forum(int index)
         {
+            forum_index = index;
             InitializeComponent();
             //MessageBox.Show("Wrong username or password. Please try again.", "Login Result");
         }
@@ -51,6 +55,8 @@ namespace OLLE_Desktop_APP
         {
             //store the information that the server returns after successful login
 
+
+            public int topic_type { get; set; }
             public int topic_id { get; set; }
             public string topic_title { get; set; }
             public string topic_detail { get; set; }
@@ -68,7 +74,7 @@ namespace OLLE_Desktop_APP
 
         private void newTopic_Click(object sender, EventArgs e)
         {
-            newTopic new_topic = new newTopic();
+            newTopic new_topic = new newTopic(forum_index);
             new_topic.ShowDialog();
         }
 
@@ -90,39 +96,48 @@ namespace OLLE_Desktop_APP
             //Fetch Form Data
             string url = Program.host_url + "getTopics";
 
-            string result = Program.PostToServer(url, "", "GET");
+            string paramStr = "{\"topic_type\":\"" + forum_index + "\"}";
+
+            string result = Program.PostToServer(url, paramStr, "POST");
 
             //MessageBox.Show(result, "Result");
 
             //transfer json data to object
             //Very Useful Website!!!: https://json2csharp.com/
-            JavaScriptSerializer js = new JavaScriptSerializer();
 
-            Root myDeserializedClass = js.Deserialize<Root>(result);
-
-
-            //create topics panel
-            for (int i = 0; i < myDeserializedClass.TopicsData.Count; i++)
+            if (result != "{\"TopicsData\": \"\"}") // this means there are topics in the category
             {
-                //UserControl1 test = new UserControl1();
-                Topic test = new Topic();
-                //test.AuthorImage = Image.FromStream(myDeserializedClass.TopicsData[i].imageUrl);
-                test.ChangeAuthorImage(myDeserializedClass.TopicsData[i].profile_photo);
-                test.TopicAuthor = myDeserializedClass.TopicsData[i].post_username;
-                test.TopicTitle = myDeserializedClass.TopicsData[i].topic_title;
-                test.TopicDetails = myDeserializedClass.TopicsData[i].topic_detail;
-                test.TopicDate = myDeserializedClass.TopicsData[i].topic_date;
-                test.files_url = myDeserializedClass.TopicsData[i].files_url;
-                this.flowLayoutPanel1.Controls.Add(test);
+                JavaScriptSerializer js = new JavaScriptSerializer();
+
+                Root myDeserializedClass = js.Deserialize<Root>(result);
+
+
+                //create topics panel
+                for (int i = 0; i < myDeserializedClass.TopicsData.Count; i++)
+                {
+                    //UserControl1 test = new UserControl1();
+                    Topic test = new Topic();
+                    //test.AuthorImage = Image.FromStream(myDeserializedClass.TopicsData[i].imageUrl);
+                    test.topic_id = myDeserializedClass.TopicsData[i].topic_id;
+                    test.ChangeAuthorImage(myDeserializedClass.TopicsData[i].profile_photo);
+                    test.TopicAuthor = myDeserializedClass.TopicsData[i].post_username;
+                    test.TopicTitle = myDeserializedClass.TopicsData[i].topic_title;
+                    test.TopicDetails = myDeserializedClass.TopicsData[i].topic_detail;
+                    test.TopicDate = myDeserializedClass.TopicsData[i].topic_date;
+                    test.files_url = myDeserializedClass.TopicsData[i].files_url;
+                    this.flowLayoutPanel1.Controls.Add(test);
+                }
             }
+            
         }
 
         private void loadNAAEvent()
         {
             //Fetch Form Data
             string url = Program.host_url + "getNaaTopics";
+            string paramStr = "{\"topic_type\":\"" + forum_index + "\"}";
 
-            string result = Program.PostToServer(url, "", "GET");
+            string result = Program.PostToServer(url, paramStr, "POST");
 
             //MessageBox.Show(result, "Result");
 
@@ -138,6 +153,7 @@ namespace OLLE_Desktop_APP
             {
                 //UserControl1 test = new UserControl1();
                 Topic test1 = new Topic();
+                test1.topic_type = myDeserializedClass.TopicsData[i].topic_type;
                 //test.AuthorImage = Image.FromStream(myDeserializedClass.TopicsData[i].imageUrl);
                 test1.ChangeAuthorImage(myDeserializedClass.TopicsData[i].profile_photo);
                 test1.TopicAuthor = myDeserializedClass.TopicsData[i].post_username;

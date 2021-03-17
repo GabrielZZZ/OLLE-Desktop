@@ -19,10 +19,11 @@ namespace OLLE_Desktop_APP
         string file_names_total=""; // store all file names upload to the Database
         List<string> src_path_total = new List<string>();
         List<string> file_path_total = new List<string>();
-
+        public int topic_type;
         
-        public newTopic()
+        public newTopic(int type)
         {
+            topic_type = type;
             InitializeComponent();
         }
 
@@ -172,7 +173,7 @@ namespace OLLE_Desktop_APP
             string imageUrl3 = "";
             string videoUrl = "";
             string fileUrl = "";
-            string topic_tag = "1";
+            string topic_tag = "0"; //1 represents NAA topics; 0 represents normal topics
             string language = "English";
             string token = Program.userData.token;
 
@@ -183,7 +184,8 @@ namespace OLLE_Desktop_APP
             string paramStr = "{\"topic_title\":\"" + title + "\"," + 
                 "\"topic_id\":\"" + topic_id + "\"," +
                 "\"token\":\"" + token + "\"," +
-                "\"topic_week\":\"" + topic_week + "\"," + 
+                "\"topic_week\":\"" + topic_week + "\"," +
+                "\"topic_type\":\"" + topic_type + "\"," +
                 "\"topic_date\":\"" + topic_date + "\"," + 
                 "\"user_id\":\"" + user_id + "\"," +
                 "\"post_username\":\"" + post_username + "\"," +
