@@ -47,5 +47,10 @@ namespace OLLE_Desktop_APP
             calendarPage.ShowDialog();
 
         }
+
+        private void MenuPage_Load(object sender, EventArgs e)
+        {
+            username.Text = Program.userData.username;
+        }
     }
 }
