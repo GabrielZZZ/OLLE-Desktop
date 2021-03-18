@@ -28,7 +28,7 @@ namespace OLLE_Desktop_APP
             // clear the panel first
             this.eventPanel.Controls.Clear();
             // get the current date
-            DateTime selected_time = monthCalendar1.SelectionStart;
+            DateTime selected_time = monthCalendar1.SelectionStart.Date;
 
             getCalendarEvents(selected_time);
         }
@@ -70,7 +70,7 @@ namespace OLLE_Desktop_APP
             // clear the panel first
             this.eventPanel.Controls.Clear();
             // get the current date
-            DateTime selected_time = monthCalendar1.SelectionStart;
+            DateTime selected_time = monthCalendar1.SelectionStart.Date;
 
             getCalendarEvents(selected_time);
 
@@ -102,19 +102,19 @@ namespace OLLE_Desktop_APP
 
 
 
-                dt_start = Convert.ToDateTime(myDeserializedClass.fData[i].endTime, dtFormat);
+                dt_start = Convert.ToDateTime(myDeserializedClass.fData[i].startTime, dtFormat);
                 //dt_start = DateTime.ParseExact(test1, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
                 dt_end = Convert.ToDateTime(myDeserializedClass.fData[i].endTime, dtFormat);
 
                 TimeSpan time_remaining = dt_end - dt_start;
                 double total_hours = time_remaining.TotalHours;
 
-                test.EventStartTime = dt_start.ToLongDateString() + " " + dt_start.ToLongTimeString();
-                test.EventEndTime = dt_end.ToLongDateString() + " " + dt_end.ToLongTimeString();
+                test.EventStartTime = dt_start.ToLongDateString() + " " + dt_start.ToShortTimeString();
+                test.EventEndTime = dt_end.ToLongDateString() + " " + dt_end.ToShortTimeString();
 
                 test.EventTime = total_hours.ToString() + " hours";
 
-                if (dt_end > selected_time)
+                if (dt_end > selected_time && dt_start.Date <= selected_time)
                 {
                     this.eventPanel.Controls.Add(test);
                 }

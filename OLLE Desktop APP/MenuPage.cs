@@ -31,7 +31,7 @@ namespace OLLE_Desktop_APP
         // 0 represents forum (open learning log)
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Forum forum = new Forum(0);
+            Forum forum = new Forum(0, "Open Learning Log");
             forum.ShowDialog();
             
         }
@@ -57,21 +57,21 @@ namespace OLLE_Desktop_APP
         // 1 represents announcements
         private void PictureBox5_Click(object sender, EventArgs e)
         {
-            Forum forum = new Forum(1);
+            Forum forum = new Forum(1, "Announcements");
             forum.ShowDialog();
         }
 
         // 2 represents troubleshoots
         private void PictureBox6_Click(object sender, EventArgs e)
         {
-            Forum forum = new Forum(2);
+            Forum forum = new Forum(2, "Troubleshoots");
             forum.ShowDialog();
         }
 
         // 3 represents feedback
         private void PictureBox4_Click(object sender, EventArgs e)
         {
-            Forum forum = new Forum(3);
+            Forum forum = new Forum(3, "Feedbacks");
             forum.ShowDialog();
         }
     }

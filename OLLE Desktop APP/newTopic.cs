@@ -20,7 +20,8 @@ namespace OLLE_Desktop_APP
         List<string> src_path_total = new List<string>();
         List<string> file_path_total = new List<string>();
         public int topic_type;
-        
+        public int topic_tag;
+
         public newTopic(int type)
         {
             topic_type = type;

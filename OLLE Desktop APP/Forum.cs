@@ -16,11 +16,13 @@ namespace OLLE_Desktop_APP
     {
 
         private int forum_index; // the number decides the category of the forum -> refer to the item in the menu page
-
-        public Forum(int index)
+        
+        public Forum(int index, string name)
         {
+            
             forum_index = index;
             InitializeComponent();
+            this.forum_name.Text = name; // mark which category the forum shows, e.g. announcements, troubleshoot, etc.
             //MessageBox.Show("Wrong username or password. Please try again.", "Login Result");
         }
 
@@ -75,6 +77,19 @@ namespace OLLE_Desktop_APP
         private void newTopic_Click(object sender, EventArgs e)
         {
             newTopic new_topic = new newTopic(forum_index);
+            DialogResult result = MessageBox.Show("Is it a NAA Topic?", "NAA Topic Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                
+                new_topic.topic_tag = 1;
+            }
+            else
+            {
+
+                new_topic.topic_tag = 0;
+            }
+
+            
             new_topic.ShowDialog();
         }
 
@@ -143,27 +158,30 @@ namespace OLLE_Desktop_APP
 
             //transfer json data to object
             //Very Useful Website!!!: https://json2csharp.com/
-            JavaScriptSerializer js = new JavaScriptSerializer();
 
-            Root myDeserializedClass = js.Deserialize<Root>(result);
-
-
-            //create topics panel
-            for (int i = 0; i < myDeserializedClass.TopicsData.Count; i++)
+            if (result != "{\"TopicsData\": \"\"}") // this means there are topics in the category
             {
-                //UserControl1 test = new UserControl1();
-                Topic test1 = new Topic();
-                test1.topic_type = myDeserializedClass.TopicsData[i].topic_type;
-                //test.AuthorImage = Image.FromStream(myDeserializedClass.TopicsData[i].imageUrl);
-                test1.ChangeAuthorImage(myDeserializedClass.TopicsData[i].profile_photo);
-                test1.TopicAuthor = myDeserializedClass.TopicsData[i].post_username;
-                test1.TopicTitle = myDeserializedClass.TopicsData[i].topic_title;
-                test1.TopicDetails = myDeserializedClass.TopicsData[i].topic_detail;
-                test1.TopicDate = myDeserializedClass.TopicsData[i].topic_date;
-                test1.topic_id = myDeserializedClass.TopicsData[i].topic_id;
-                this.flowLayoutPanel1.Controls.Add(test1);
-            }
+                JavaScriptSerializer js = new JavaScriptSerializer();
 
+                Root myDeserializedClass = js.Deserialize<Root>(result);
+
+
+                //create topics panel
+                for (int i = 0; i < myDeserializedClass.TopicsData.Count; i++)
+                {
+                    //UserControl1 test = new UserControl1();
+                    Topic test1 = new Topic();
+                    test1.topic_type = myDeserializedClass.TopicsData[i].topic_type;
+                    //test.AuthorImage = Image.FromStream(myDeserializedClass.TopicsData[i].imageUrl);
+                    test1.ChangeAuthorImage(myDeserializedClass.TopicsData[i].profile_photo);
+                    test1.TopicAuthor = myDeserializedClass.TopicsData[i].post_username;
+                    test1.TopicTitle = myDeserializedClass.TopicsData[i].topic_title;
+                    test1.TopicDetails = myDeserializedClass.TopicsData[i].topic_detail;
+                    test1.TopicDate = myDeserializedClass.TopicsData[i].topic_date;
+                    test1.topic_id = myDeserializedClass.TopicsData[i].topic_id;
+                    this.flowLayoutPanel1.Controls.Add(test1);
+                }
+            }
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)

@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Forum));
-            this.label1 = new System.Windows.Forms.Label();
+            this.forum_name = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.refresh_button = new System.Windows.Forms.Button();
             this.NAAenable = new System.Windows.Forms.CheckBox();
@@ -38,19 +37,18 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // forum_name
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(16, 11);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(372, 69);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "OLLE Forum";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.forum_name.AutoSize = true;
+            this.forum_name.BackColor = System.Drawing.Color.Transparent;
+            this.forum_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.forum_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(114)))), ((int)(((byte)(196)))));
+            this.forum_name.Location = new System.Drawing.Point(3, 20);
+            this.forum_name.Name = "forum_name";
+            this.forum_name.Size = new System.Drawing.Size(309, 55);
+            this.forum_name.TabIndex = 0;
+            this.forum_name.Text = "OLLE Forum";
+            this.forum_name.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel1
             // 
@@ -59,12 +57,11 @@
             this.panel1.Controls.Add(this.refresh_button);
             this.panel1.Controls.Add(this.NAAenable);
             this.panel1.Controls.Add(this.newTopic);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.forum_name);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1124, 92);
+            this.panel1.Size = new System.Drawing.Size(843, 80);
             this.panel1.TabIndex = 2;
             // 
             // refresh_button
@@ -72,10 +69,9 @@
             this.refresh_button.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refresh_button.ForeColor = System.Drawing.Color.Black;
             this.refresh_button.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.refresh_button.Location = new System.Drawing.Point(923, 56);
-            this.refresh_button.Margin = new System.Windows.Forms.Padding(4);
+            this.refresh_button.Location = new System.Drawing.Point(692, 49);
             this.refresh_button.Name = "refresh_button";
-            this.refresh_button.Size = new System.Drawing.Size(36, 28);
+            this.refresh_button.Size = new System.Drawing.Size(27, 24);
             this.refresh_button.TabIndex = 4;
             this.refresh_button.Text = "↻";
             this.refresh_button.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -86,11 +82,11 @@
             // 
             this.NAAenable.AutoSize = true;
             this.NAAenable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NAAenable.ForeColor = System.Drawing.Color.White;
-            this.NAAenable.Location = new System.Drawing.Point(848, 58);
+            this.NAAenable.ForeColor = System.Drawing.Color.Black;
+            this.NAAenable.Location = new System.Drawing.Point(627, 54);
             this.NAAenable.Margin = new System.Windows.Forms.Padding(2);
             this.NAAenable.Name = "NAAenable";
-            this.NAAenable.Size = new System.Drawing.Size(59, 22);
+            this.NAAenable.Size = new System.Drawing.Size(49, 19);
             this.NAAenable.TabIndex = 2;
             this.NAAenable.Text = "NAA";
             this.NAAenable.UseVisualStyleBackColor = true;
@@ -99,10 +95,10 @@
             // newTopic
             // 
             this.newTopic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newTopic.Location = new System.Drawing.Point(975, 56);
+            this.newTopic.Location = new System.Drawing.Point(731, 49);
             this.newTopic.Margin = new System.Windows.Forms.Padding(2);
             this.newTopic.Name = "newTopic";
-            this.newTopic.Size = new System.Drawing.Size(135, 31);
+            this.newTopic.Size = new System.Drawing.Size(101, 27);
             this.newTopic.TabIndex = 1;
             this.newTopic.Text = "New Topic";
             this.newTopic.UseVisualStyleBackColor = true;
@@ -112,26 +108,26 @@
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 92);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 80);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1124, 619);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(843, 536);
             this.flowLayoutPanel1.TabIndex = 5;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // Forum
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::OLLE_Desktop_APP.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1124, 711);
+            this.ClientSize = new System.Drawing.Size(843, 616);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Forum";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Forum";
@@ -144,7 +140,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label forum_name;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button newTopic;

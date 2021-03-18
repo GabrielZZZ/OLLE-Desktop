@@ -270,7 +270,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MenuPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "`";
+            this.Text = "Menu";
             this.Load += new System.EventHandler(this.MenuPage_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
