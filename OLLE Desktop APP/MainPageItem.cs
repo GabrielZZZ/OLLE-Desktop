@@ -54,6 +54,9 @@ namespace OLLE_Desktop_APP
             //add file panel
             Detail_page.AddFilePanel(files_url);
 
+            Detail_page.pageOrNot = true; // this ensures there are no replies in the Page details
+
+
             /**
             if (files_url != "")
             {

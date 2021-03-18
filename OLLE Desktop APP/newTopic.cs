@@ -26,6 +26,9 @@ namespace OLLE_Desktop_APP
         {
             topic_type = type;
             InitializeComponent();
+
+            
+
         }
 
         // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
@@ -107,8 +110,8 @@ namespace OLLE_Desktop_APP
 
             string url = Program.host_url + type;//地址
             
-            int page_week = 0;
-            string page_date = DateTime.Now.ToShortDateString().ToString();//get current time
+            int page_week = Convert.ToInt32(week_select.SelectedItem.ToString());
+            string page_date = DateTime.Now.ToString("yyyy-MM-dd");//get current time
             int user_id = Program.userData.user_id;
             string post_username = Program.userData.username;
             string profile_photo = Program.userData.profile_photo;
@@ -380,6 +383,15 @@ namespace OLLE_Desktop_APP
         private void underline_button_Click(object sender, EventArgs e)
         {
             ChangeFontStyle(FontStyle.Underline);
+        }
+
+        private void NewTopic_Load(object sender, EventArgs e)
+        {
+            if (post_type == 0)
+            {
+                week_label.Visible = false;
+                week_select.Visible = false;
+            }
         }
     }
 }

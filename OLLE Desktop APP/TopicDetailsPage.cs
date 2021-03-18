@@ -20,6 +20,8 @@ namespace OLLE_Desktop_APP
         string[] files_url_split;
         public int topic_id;
 
+        public bool pageOrNot = false;
+
         public TopicDetailsPage()
         {
             InitializeComponent();
@@ -204,67 +206,78 @@ namespace OLLE_Desktop_APP
 
         private void TopicDetailsPage_Load(object sender, EventArgs e)
         {
-            string parent_id = "0";
-            //get replies
-            string type = "getPostedReply";
-            string url = Program.host_url + type;//地址
 
-            //string paramStr = "{\"username\":\"admin\"," + "\"password\":\"admin123\"}";
-
-            string paramStr = "{\"parent_id\":\"" + parent_id + "\"," +
-                                  "\"topic_id\":\"" + topic_id + "\"}";
-
-            string result = Program.PostToServer(url, paramStr, "POST");
-
-
-
-            if (result.Contains("error"))
+            if (pageOrNot == false)
             {
-                string errorMessage = result.Substring(19);
-                errorMessage = Program.Reverse(errorMessage);
-                errorMessage = errorMessage.Substring(4);
-                errorMessage = Program.Reverse(errorMessage);
+                string parent_id = "0";
+                //get replies
+                string type = "getPostedReply";
+                string url = Program.host_url + type;//地址
 
-                //errorMessage.Remove()
-                MessageBox.Show(errorMessage);
-                return;
-            }else
-            {
-                if (result != "{\"PostedReplyData\": \"\"}")
+                //string paramStr = "{\"username\":\"admin\"," + "\"password\":\"admin123\"}";
+
+                string paramStr = "{\"parent_id\":\"" + parent_id + "\"," +
+                                      "\"topic_id\":\"" + topic_id + "\"}";
+
+                string result = Program.PostToServer(url, paramStr, "POST");
+
+
+
+                if (result.Contains("error"))
                 {
-                    JavaScriptSerializer js = new JavaScriptSerializer();
+                    string errorMessage = result.Substring(19);
+                    errorMessage = Program.Reverse(errorMessage);
+                    errorMessage = errorMessage.Substring(4);
+                    errorMessage = Program.Reverse(errorMessage);
 
-                    Root myDeserializedClass = js.Deserialize<Root>(result);
-
-                    if (myDeserializedClass != null)
-                    {
-                        //create topics panel
-                        for (int i = 0; i < myDeserializedClass.PostedReplyData.Count; i++)
-                        {
-                            //UserControl1 test = new UserControl1();
-                            Reply test = new Reply();
-                            //test.AuthorImage = Image.FromStream(myDeserializedClass.TopicsData[i].imageUrl);
-                            test.ChangeAuthorImage(myDeserializedClass.PostedReplyData[i].profile_photo);
-                            test.TopicAuthor = myDeserializedClass.PostedReplyData[i].username;
-
-                            test.TopicDetails = myDeserializedClass.PostedReplyData[i].user_post;
-                            test.TopicDate = myDeserializedClass.PostedReplyData[i].post_date;
-
-                            this.replyPanel.Controls.Add(test);
-                        }
-                    }
+                    //errorMessage.Remove()
+                    MessageBox.Show(errorMessage);
+                    return;
                 }
                 else
                 {
-                    Label label1 = new Label();
-                    label1.Text = "There is nothing here";
-                    label1.AutoSize = true;
-                    this.replyPanel.Controls.Add(label1);
+                    if (result != "{\"PostedReplyData\": \"\"}")
+                    {
+                        JavaScriptSerializer js = new JavaScriptSerializer();
+
+                        Root myDeserializedClass = js.Deserialize<Root>(result);
+
+                        if (myDeserializedClass != null)
+                        {
+                            //create topics panel
+                            for (int i = 0; i < myDeserializedClass.PostedReplyData.Count; i++)
+                            {
+                                //UserControl1 test = new UserControl1();
+                                Reply test = new Reply();
+                                //test.AuthorImage = Image.FromStream(myDeserializedClass.TopicsData[i].imageUrl);
+                                test.ChangeAuthorImage(myDeserializedClass.PostedReplyData[i].profile_photo);
+                                test.TopicAuthor = myDeserializedClass.PostedReplyData[i].username;
+
+                                test.TopicDetails = myDeserializedClass.PostedReplyData[i].user_post;
+                                test.TopicDate = myDeserializedClass.PostedReplyData[i].post_date;
+
+                                this.replyPanel.Controls.Add(test);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Label label1 = new Label();
+                        label1.Text = "There is nothing here";
+                        label1.AutoSize = true;
+                        this.replyPanel.Controls.Add(label1);
+                    }
+
+
+                    return;
                 }
-
-
-                return;
+            } else
+            {
+                reply_button.Visible = false;
+                replyPanel.Visible = false;
+                this.Height = 700;
             }
+            
         }
     }
 }
