@@ -71,9 +71,9 @@ namespace OLLE_Desktop_APP
             {
                 //UserControl1 test = new UserControl1();
                 MainPageItem test = new MainPageItem();
-                //test.AuthorImage = Image.FromStream(myDeserializedClass.TopicsData[i].imageUrl);
-                
-                
+                test.profile_photo = myDeserializedClass.pageData[i].profile_photo;
+
+
                 test.PageTitle = myDeserializedClass.pageData[i].page_title;
                 test.pageDetails = myDeserializedClass.pageData[i].page_detail;
                 test.date = myDeserializedClass.pageData[i].page_date;

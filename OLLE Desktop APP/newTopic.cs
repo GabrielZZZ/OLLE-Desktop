@@ -166,7 +166,7 @@ namespace OLLE_Desktop_APP
             string url = Program.host_url + type;//地址
             string topic_id = "";
             string topic_week = "0";
-
+            string profile_photo = Program.userData.profile_photo;
             string topic_date = DateTime.Now.ToString("yyyy-MM-dd");//get current time
             
 
@@ -178,7 +178,7 @@ namespace OLLE_Desktop_APP
             string videoUrl = "";
             string fileUrl = "";
             string topic_tag = "0"; //1 represents NAA topics; 0 represents normal topics
-            string language = "English";
+            string language = Program.userData.language;
             string token = Program.userData.token;
 
             //content = contentBox.Rtf;
@@ -201,6 +201,7 @@ namespace OLLE_Desktop_APP
                 "\"topic_tag\":\"" + topic_tag + "\"," +
                 "\"language\":\"" + language + "\"," +
                 "\"files_url\":\"" + file_names_total + "\"," +
+                "\"profile_photo\":\"" + profile_photo + "\"," +
                 "\"topic_detail\":\"" + content + "\"}";
 
             string result = Program.PostToServer(url, paramStr, "POST");

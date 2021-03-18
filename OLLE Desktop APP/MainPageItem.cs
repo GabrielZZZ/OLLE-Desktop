@@ -18,6 +18,8 @@ namespace OLLE_Desktop_APP
         public string pageDetails = "";
         public string date = "";
 
+        public string profile_photo = "";
+
         public MainPageItem()
         {
             InitializeComponent();
@@ -35,7 +37,7 @@ namespace OLLE_Desktop_APP
             TopicDetailsPage Detail_page = new TopicDetailsPage();
 
             //pass image to TopicDetailPage
-            Detail_page.AuthorImage = global::OLLE_Desktop_APP.Properties.Resources.admin;
+            Detail_page.ChangeAuthorImage(profile_photo);
 
             //pass author name to TopicDetailPage
             Detail_page.TopicAuthor = "Admin";
