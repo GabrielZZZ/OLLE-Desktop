@@ -78,7 +78,9 @@ namespace OLLE_Desktop_APP
 
         private void getCalendarEvents(DateTime selected_time)
         {
+
             
+            int count = 0;
 
             //create topics panel
             for (int i = 0; i < myDeserializedClass.fData.Count; i++)
@@ -116,10 +118,22 @@ namespace OLLE_Desktop_APP
 
                 if (dt_end > selected_time && dt_start.Date <= selected_time)
                 {
+                    count++;
                     this.eventPanel.Controls.Add(test);
                 }
 
             }
+
+            if (count == 0)
+            {
+                Label label1 = new Label();
+                label1.Text = "No tasks today! Cheers!";
+                label1.Font = new Font("Arial", 10, FontStyle.Italic);
+                label1.AutoSize = true;
+                this.eventPanel.Controls.Add(label1);
+
+            }
+
         }
 
         private void refresh_button_Click(object sender, EventArgs e)

@@ -58,7 +58,7 @@
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(675, 80);
             this.panel1.TabIndex = 2;
@@ -109,7 +109,9 @@
             // eventPanel
             // 
             this.eventPanel.AutoScroll = true;
-            this.eventPanel.BackColor = System.Drawing.Color.Transparent;
+            this.eventPanel.BackColor = System.Drawing.Color.White;
+            this.eventPanel.BackgroundImage = global::OLLE_Desktop_APP.Properties.Resources.background1;
+            this.eventPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.eventPanel.Location = new System.Drawing.Point(271, 79);
             this.eventPanel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.eventPanel.Name = "eventPanel";
@@ -127,6 +129,7 @@
             this.Controls.Add(this.eventPanel);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "CalendarPage";
