@@ -68,7 +68,9 @@ namespace OLLE_Desktop_APP
                 return;
             }
             {
-                Program.userData = Program.TransferJson(result);
+                //Program.userData = Program.TransferJson(result);
+
+                MessageBox.Show("Create Success!");
 
                 return;
             }

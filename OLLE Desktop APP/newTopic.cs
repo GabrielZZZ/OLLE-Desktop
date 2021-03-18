@@ -165,7 +165,10 @@ namespace OLLE_Desktop_APP
             string url = Program.host_url + type;//地址
             string topic_id = "";
             string topic_week = "0";
-            string topic_date = DateTime.Now.ToShortDateString().ToString();//get current time
+
+            string topic_date = DateTime.Now.ToString("yyyy-MM-dd");//get current time
+            
+
             int user_id = Program.userData.user_id;
             string post_username = Program.userData.username;
             string imageUrl = "";
