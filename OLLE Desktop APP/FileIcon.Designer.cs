@@ -30,40 +30,58 @@
         {
             this.fileImage = new System.Windows.Forms.PictureBox();
             this.fileName = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.fileImage)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileImage
             // 
-            this.fileImage.Location = new System.Drawing.Point(47, 37);
+            this.fileImage.Location = new System.Drawing.Point(41, 38);
+            this.fileImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.fileImage.Name = "fileImage";
-            this.fileImage.Size = new System.Drawing.Size(223, 182);
+            this.fileImage.Size = new System.Drawing.Size(119, 114);
             this.fileImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.fileImage.TabIndex = 0;
             this.fileImage.TabStop = false;
             // 
             // fileName
             // 
-            this.fileName.AutoSize = true;
+            this.fileName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fileName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fileName.Location = new System.Drawing.Point(42, 247);
+            this.fileName.Location = new System.Drawing.Point(0, 0);
+            this.fileName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.fileName.MaximumSize = new System.Drawing.Size(0, 30);
             this.fileName.Name = "fileName";
-            this.fileName.Size = new System.Drawing.Size(77, 27);
+            this.fileName.Size = new System.Drawing.Size(200, 30);
             this.fileName.TabIndex = 1;
-            this.fileName.Text = "label1";
+            this.fileName.Text = "aaaaaaaaaaaaaaa";
+            this.fileName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.fileName.Click += new System.EventHandler(this.FileName_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.fileName);
+            this.panel1.Location = new System.Drawing.Point(0, 170);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 31);
+            this.panel1.TabIndex = 2;
             // 
             // FileIcon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.Controls.Add(this.fileName);
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.fileImage);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinimumSize = new System.Drawing.Size(190, 190);
             this.Name = "FileIcon";
-            this.Size = new System.Drawing.Size(325, 300);
+            this.Size = new System.Drawing.Size(200, 200);
+            this.Load += new System.EventHandler(this.FileIcon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fileImage)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -71,5 +89,6 @@
 
         private System.Windows.Forms.PictureBox fileImage;
         private System.Windows.Forms.Label fileName;
+        private System.Windows.Forms.Panel panel1;
     }
 }

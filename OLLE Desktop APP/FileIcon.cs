@@ -66,5 +66,15 @@ namespace OLLE_Desktop_APP
                 //author_image1.Image = Image.FromFile(@"C:\Users\A\Desktop\OLLE\testImage.jpg");
             }
         }
+
+        private void FileIcon_Load(object sender, EventArgs e)
+        {
+            Program.LTooltip(fileName, 10);
+        }
+
+        private void FileName_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

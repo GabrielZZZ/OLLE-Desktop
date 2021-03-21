@@ -102,6 +102,35 @@ namespace OLLE_Desktop_APP
             
         }
 
+        public static void LTooltip(System.Windows.Forms.Label label, int length)
+        {
+            String value = label.Text;
+            if (value.Length > length)
+            {
+                label.Text = label.Text.Substring(0, length) + "...";
+            }
+            var tip = new ToolTip();
+            tip.IsBalloon = false;
+            tip.ShowAlways = true;
+            tip.SetToolTip(label, value);
+        }
+
+
+        public static void ChbTooltip(System.Windows.Forms.CheckBox ck, int length, string value)
+        {
+            ck.Text = value;
+            if (value.Length > length)
+            {
+                ck.Text = ck.Text.Substring(0, length) + "...";
+            }
+            var tip = new ToolTip();
+            tip.IsBalloon = false;
+            tip.ShowAlways = true;
+            tip.SetToolTip(ck, value);
+        }
+
+
+
         //reverse string
         public static string Reverse(string str)
         {
