@@ -74,5 +74,24 @@ namespace OLLE_Desktop_APP
             Forum forum = new Forum(3, "Feedbacks");
             forum.ShowDialog();
         }
+
+        private void Settings_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            SettingPage settingPage = new SettingPage();
+            settingPage.ChangeProfileImage(Program.userData.profile_photo);
+            settingPage.Username = Program.userData.username;
+            Program.LTooltip(settingPage.username, Program.userData.username.Length);
+            settingPage.ShowDialog();
+        }
     }
 }

@@ -100,6 +100,18 @@
     <Compile Include="CalendarPage.Designer.cs">
       <DependentUpon>CalendarPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePhoto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePhoto.Designer.cs">
+      <DependentUpon>ChangePhoto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FileIcon.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -135,6 +147,12 @@
     </Compile>
     <Compile Include="Reply.Designer.cs">
       <DependentUpon>Reply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingPage.Designer.cs">
+      <DependentUpon>SettingPage.cs</DependentUpon>
     </Compile>
     <Compile Include="SignUp.cs">
       <SubType>Form</SubType>
@@ -190,6 +208,12 @@
     <EmbeddedResource Include="CalendarPage.resx">
       <DependentUpon>CalendarPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePhoto.resx">
+      <DependentUpon>ChangePhoto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FileIcon.resx">
       <DependentUpon>FileIcon.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +250,9 @@
     </Compile>
     <EmbeddedResource Include="Reply.resx">
       <DependentUpon>Reply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingPage.resx">
+      <DependentUpon>SettingPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="signUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
