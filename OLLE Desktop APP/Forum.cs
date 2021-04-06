@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,6 +73,7 @@ namespace OLLE_Desktop_APP
             public int topic_tag { get; set; }
             public string profile_photo { get; set; }
             public string files_url { get; set; }
+            public string rtf_file_url { get; set; }
         };
 
         private void newTopic_Click(object sender, EventArgs e)
@@ -126,6 +128,9 @@ namespace OLLE_Desktop_APP
 
                 Root myDeserializedClass = js.Deserialize<Root>(result);
 
+                //prepare to download RTF files to local
+                TransferUploadObjectModel m = new TransferUploadObjectModel();
+                string str = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\OLLE\\";
 
                 //create topics panel
                 for (int i = 0; i < myDeserializedClass.TopicsData.Count; i++)
@@ -140,7 +145,14 @@ namespace OLLE_Desktop_APP
                     test.TopicDetails = myDeserializedClass.TopicsData[i].topic_detail;
                     test.TopicDate = myDeserializedClass.TopicsData[i].topic_date;
                     test.files_url = myDeserializedClass.TopicsData[i].files_url;
-                    this.flowLayoutPanel1.Controls.Add(test);
+                    test.rtf_file_url = str + Path.GetFileName(myDeserializedClass.TopicsData[i].rtf_file_url);
+
+                    if (myDeserializedClass.TopicsData[i].rtf_file_url != null)
+                    {
+                        m.downloadFile(myDeserializedClass.TopicsData[i].rtf_file_url, str);
+                        this.flowLayoutPanel1.Controls.Add(test);
+                    }
+                    
                 }
             }
             
@@ -165,6 +177,9 @@ namespace OLLE_Desktop_APP
 
                 Root myDeserializedClass = js.Deserialize<Root>(result);
 
+                //prepare to download RTF files to local
+                TransferUploadObjectModel m = new TransferUploadObjectModel();
+                string str = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\OLLE\\";
 
                 //create topics panel
                 for (int i = 0; i < myDeserializedClass.TopicsData.Count; i++)
@@ -179,6 +194,14 @@ namespace OLLE_Desktop_APP
                     test1.TopicDetails = myDeserializedClass.TopicsData[i].topic_detail;
                     test1.TopicDate = myDeserializedClass.TopicsData[i].topic_date;
                     test1.topic_id = myDeserializedClass.TopicsData[i].topic_id;
+                    test1.rtf_file_url = Path.GetFileName(myDeserializedClass.TopicsData[i].rtf_file_url);
+
+                    if (myDeserializedClass.TopicsData[i].rtf_file_url != null)
+                    {
+                        m.downloadFile(myDeserializedClass.TopicsData[i].rtf_file_url, str);
+                        this.flowLayoutPanel1.Controls.Add(test1);
+                    }
+
                     this.flowLayoutPanel1.Controls.Add(test1);
                 }
             }

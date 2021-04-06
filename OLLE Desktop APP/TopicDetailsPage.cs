@@ -20,10 +20,16 @@ namespace OLLE_Desktop_APP
         string[] files_url_split;
         public int topic_id;
 
+        public string rtf_file_url;
+
         public bool pageOrNot = false;
 
         public TopicDetailsPage()
         {
+            
+
+
+
             InitializeComponent();
         }
 
@@ -206,6 +212,10 @@ namespace OLLE_Desktop_APP
 
         private void TopicDetailsPage_Load(object sender, EventArgs e)
         {
+            if (rtf_file_url != null)
+            {
+                topic_details1.LoadFile(rtf_file_url);
+            }
 
             if (pageOrNot == false)
             {

@@ -16,7 +16,7 @@ namespace OLLE_Desktop_APP
         public string files_url = "";
         public int topic_id;
         public int topic_type;
-
+        public string rtf_file_url = "";
 
         public Topic()
         {
@@ -115,6 +115,9 @@ namespace OLLE_Desktop_APP
 
             //add file panel
             Detail_page.AddFilePanel(files_url);
+
+            //pass rtf_file_name
+            Detail_page.rtf_file_url = rtf_file_url;
 
             /**
             if (files_url != "")
