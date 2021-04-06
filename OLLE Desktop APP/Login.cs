@@ -105,6 +105,19 @@ namespace OLLE_Desktop_APP
 
         private void Login_Load(object sender, EventArgs e)
         {
+            string dirPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string name = "OLLE";
+            foreach (string d in Directory.GetFileSystemEntries(dirPath))
+            {
+                if (File.Exists(dirPath + @"\" + name))
+                {
+                    MessageBox.Show("创建文件夹 " + name + " 失败,文件夹已经存在");
+                    
+                }
+            }//end of for
+            DirectoryInfo info = new DirectoryInfo(dirPath);
+            info.CreateSubdirectory(name);
+            //info.Parent.CreateSubdirectory(name);//可以在父目录生成文件夹，很方便
 
         }
 

@@ -53,6 +53,34 @@ namespace OLLE_Desktop_APP
         }
 
 
+        TopicData topicData;
+
+        // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
+        public class PageData
+        {
+            public string page_title { get; set; }
+            public string page_id { get; set; }
+            public string page_detail { get; set; }
+            public string post_username { get; set; }
+            public string page_date { get; set; }
+            public string imageUrl { get; set; }
+            public string imageUrl2 { get; set; }
+            public string imageUrl3 { get; set; }
+            public string user_id { get; set; }
+            public string videoUrl { get; set; }
+            public object fileUrl { get; set; }
+            public string profile_photo { get; set; }
+            public string files_url { get; set; }
+            public string page_week { get; set; }
+        }
+
+        public class RootPage
+        {
+            public PageData pageData { get; set; }
+        }
+
+        PageData pageData;
+
 
 
         private void label1_Click(object sender, EventArgs e)
@@ -65,21 +93,26 @@ namespace OLLE_Desktop_APP
 
         }
 
+       
+
         private void submitTopic_Click(object sender, EventArgs e)
         {
             string title = this.titleBox.Text;
             string content = this.contentBox.Text;
+
+            string str = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)+"\\OLLE\\"+ title + DateTime.Now.ToString("yyyy-MM-dd") + ".rtf";//may change to name+date+time later
+            this.contentBox.SaveFile(str);
 
             if ((title != "") && (content != ""))
             {
                 string post_result = "";
                 if (post_type == 0)
                 {
-                    post_result = post_user_info_new_topic(title, content);//post login data
+                    post_result = post_user_info_new_topic(title, content);//post topic data
                 }
                 else
                 {
-                    post_result = post_user_info_new_page(title, content);//post login data
+                    post_result = post_user_info_new_page(title, content);//post page data
                 }
                 
 
@@ -91,6 +124,60 @@ namespace OLLE_Desktop_APP
                 else
                 {
                     MessageBox.Show("Post Success!", "Post Result");
+
+                    //upload the RTF file to the cloud
+
+                    string cosPath = "";
+                    string type = "";
+                    string paramStr = "";
+
+                    if (post_type == 0)
+                    {
+                        cosPath = "Forum/" + title + DateTime.Now.ToString("yyyy-MM-dd") + ".rtf";//post topic data
+                        type = "postNewRTF";
+                        string file_address = "https://olle2019-1257377975.cos.ap-chengdu.myqcloud.com/" + cosPath;
+
+                        paramStr = "{\"topic_id\":\"" + topicData.topic_id + "\"," +
+                                        "\"rtf_file_url\":\"" + file_address + "\"}";
+                    }
+                    else
+                    {
+                        cosPath = "Training/" + title + DateTime.Now.ToString("yyyy-MM-dd") + ".rtf";//post page data
+                        type = "postNewRTFPage";
+                        string file_address = "https://olle2019-1257377975.cos.ap-chengdu.myqcloud.com/" + cosPath;
+
+                        paramStr = "{\"page_id\":\"" + pageData.page_id + "\"," +
+                                        "\"rtf_file_url\":\"" + file_address + "\"}";
+                    }
+
+                    
+                    TransferUploadObjectModel m1 = new TransferUploadObjectModel();
+                    m1.TransferUploadFile(str,cosPath);
+
+                   
+                    //store the RTF file Path into the database
+                    
+                    string url = Program.host_url + type;//地址
+
+
+                    
+
+                    string result = Program.PostToServer(url, paramStr, "POST");
+
+
+                    if (result.Contains("{\"error\""))
+                    {
+                        MessageBox.Show("Post Error to Server! Please contact administrator!");
+                        return;
+                    }
+                    else
+                    {
+                        //Program.userData = Program.TransferJson(result);
+                        //no need to transfer json
+
+                    }
+
+
                     this.Close();
                 }
                 
@@ -143,8 +230,12 @@ namespace OLLE_Desktop_APP
                 "\"page_detail\":\"" + content + "\"}";
 
             string result = Program.PostToServer(url, paramStr, "POST");
-            TransferUploadObjectModel m = new TransferUploadObjectModel();
-            m.TransferBatchUploadObjects(file_path_total, src_path_total);
+
+            if (file_names_total != "")
+            {
+                TransferUploadObjectModel m = new TransferUploadObjectModel();
+                m.TransferBatchUploadObjects(file_path_total, src_path_total);
+            }
 
 
             if (result.Contains("{\"error\""))
@@ -156,6 +247,7 @@ namespace OLLE_Desktop_APP
             {
                 //Program.userData = Program.TransferJson(result);
                 //no need to transfer json
+                pageData = TransferJsonPage(result);
 
                 return result;
             }
@@ -185,6 +277,7 @@ namespace OLLE_Desktop_APP
             string token = Program.userData.token;
 
             //content = contentBox.Rtf;
+            //content = content.ToString();
             //byte[] bytes = System.Text.Encoding.UTF8.GetBytes(content);
             //string paramStr = "{\"username\":\"admin\"," + "\"password\":\"admin123\"}";
 
@@ -208,8 +301,14 @@ namespace OLLE_Desktop_APP
                 "\"topic_detail\":\"" + content + "\"}";
 
             string result = Program.PostToServer(url, paramStr, "POST");
-            TransferUploadObjectModel m = new TransferUploadObjectModel();
-            m.TransferBatchUploadObjects(file_path_total, src_path_total);
+
+            if (file_names_total != "")
+            {
+                TransferUploadObjectModel m = new TransferUploadObjectModel();
+                m.TransferBatchUploadObjects(file_path_total, src_path_total);
+            }
+
+
 
 
             if (result.Contains("{\"error\""))
@@ -221,7 +320,8 @@ namespace OLLE_Desktop_APP
             {
                 //Program.userData = Program.TransferJson(result);
                 //no need to transfer json
-    
+                topicData = TransferJson(result);
+
                 return result;
             }
 
@@ -234,6 +334,23 @@ namespace OLLE_Desktop_APP
 
         }
 
+        private PageData TransferJsonPage(string jsonMessage)
+        {
+
+            JavaScriptSerializer js = new JavaScriptSerializer();   //实例化一个能够序列化数据的类
+
+            RootPage rootClass = js.Deserialize<RootPage>(jsonMessage);     //将json数据转化为对象类型并赋值给list
+
+            PageData pageDataDetails = new PageData();
+
+            //just store these two for now since they are useful
+            pageDataDetails.user_id = rootClass.pageData.user_id;
+            pageDataDetails.page_id = rootClass.pageData.page_id;
+
+            return pageDataDetails;
+
+        }
+
         private TopicData TransferJson(string jsonMessage)
         {
 
@@ -243,8 +360,9 @@ namespace OLLE_Desktop_APP
 
             TopicData topicDataDetails = new TopicData();
 
+            //just store these two for now since they are useful
             topicDataDetails.user_id = rootClass.topicData.user_id;
-
+            topicDataDetails.topic_id = rootClass.topicData.topic_id;
 
             return topicDataDetails;
 

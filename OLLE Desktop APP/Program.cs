@@ -129,7 +129,10 @@ namespace OLLE_Desktop_APP
             tip.SetToolTip(ck, value);
         }
 
-
+        public static void saveRTFfile(RichTextBox rtb, string path)
+        {
+            rtb.SaveFile(path);
+        }
 
         //reverse string
         public static string Reverse(string str)

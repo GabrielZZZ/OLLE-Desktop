@@ -65,7 +65,7 @@ namespace OLLE_Desktop_APP
                 //MessageBox.Show(String.Format("progress = {0:##.##}%", completed * 100.0 / total));
 
             };
-            MessageBox.Show("File uploads successfully!");
+            //MessageBox.Show("File uploads successfully!");
             try
             {
                 COSXML.Transfer.COSXMLUploadTask.UploadTaskResult result = await
