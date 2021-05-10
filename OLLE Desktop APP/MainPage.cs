@@ -75,7 +75,8 @@ namespace OLLE_Desktop_APP
 
 
                 test.PageTitle = myDeserializedClass.pageData[i].page_title;
-                test.pageDetails = myDeserializedClass.pageData[i].page_detail;
+                
+                test.pageDetails = Program.changeCharacterBack(myDeserializedClass.pageData[i].page_detail);
                 test.date = myDeserializedClass.pageData[i].page_date;
                 test.files_url = myDeserializedClass.pageData[i].files_url;
                 this.flowLayoutPanel1.Controls.Add(test);

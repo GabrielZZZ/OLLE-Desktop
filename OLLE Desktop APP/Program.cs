@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using System.Windows.Forms;
@@ -132,6 +133,36 @@ namespace OLLE_Desktop_APP
         public static void saveRTFfile(RichTextBox rtb, string path)
         {
             rtb.SaveFile(path);
+        }
+
+        //replace \n with special character
+        public static string changeCharacter(string str)
+        {
+            if (!string.IsNullOrEmpty(str))
+            {
+                //将特殊字符全部替换为下划线
+                string pattern = "\n";
+                return Regex.Replace(str, pattern, "<br>");
+            }
+            else
+            {
+                return "";
+            }
+        }
+
+        //replace \n with special character
+        public static string changeCharacterBack(string str)
+        {
+            if (!string.IsNullOrEmpty(str))
+            {
+                //将特殊字符全部替换为下划线
+                string pattern = "<br>";
+                return Regex.Replace(str, pattern, "\n");
+            }
+            else
+            {
+                return "";
+            }
         }
 
         //reverse string

@@ -114,12 +114,12 @@ namespace OLLE_Desktop_APP
                 {
                     post_result = post_user_info_new_page(title, content);//post page data
                 }
-                
 
 
-                if (post_result.Equals("Wrong Password"))
+
+                if (post_result.Equals("Post Error!"))
                 {
-                    MessageBox.Show("Wrong username or password. Please try again.", "Post Result");
+                    MessageBox.Show("Please check everything and repost again.");
                 }
                 else
                 {
@@ -133,7 +133,7 @@ namespace OLLE_Desktop_APP
 
                     if (post_type == 0)
                     {
-                        cosPath = "Forum/" + title + DateTime.Now.ToString("yyyy-MM-dd") + ".rtf";//post topic data
+                        cosPath = "Forum/" + title + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".rtf";//post topic data
                         type = "postNewRTF";
                         string file_address = "https://olle2019-1257377975.cos.ap-chengdu.myqcloud.com/" + cosPath;
 
@@ -142,7 +142,7 @@ namespace OLLE_Desktop_APP
                     }
                     else
                     {
-                        cosPath = "Training/" + title + DateTime.Now.ToString("yyyy-MM-dd") + ".rtf";//post page data
+                        cosPath = "Training/" + title + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") + ".rtf";//post page data
                         type = "postNewRTFPage";
                         string file_address = "https://olle2019-1257377975.cos.ap-chengdu.myqcloud.com/" + cosPath;
 
@@ -196,6 +196,12 @@ namespace OLLE_Desktop_APP
 
 
             string url = Program.host_url + type;//地址
+
+            if (week_select.SelectedItem == null)
+            {
+                MessageBox.Show("Please select the week time!");
+                return "Post Error!";
+            }
             
             int page_week = Convert.ToInt32(week_select.SelectedItem.ToString());
             string page_date = DateTime.Now.ToString("yyyy-MM-dd");//get current time
@@ -210,6 +216,8 @@ namespace OLLE_Desktop_APP
             //string topic_tag = "1";
             //string language = "English";
             string token = Program.userData.token;
+            content = Program.changeCharacter(content);
+
 
             //content = contentBox.Rtf;
             //byte[] bytes = System.Text.Encoding.UTF8.GetBytes(content);
@@ -272,9 +280,11 @@ namespace OLLE_Desktop_APP
             string imageUrl3 = "";
             string videoUrl = "";
             string fileUrl = "";
-            string topic_tag = "0"; //1 represents NAA topics; 0 represents normal topics
+            //string topic_tag = "0"; //1 represents NAA topics; 0 represents normal topics
             string language = Program.userData.language;
             string token = Program.userData.token;
+
+            content = Program.changeCharacter(content);
 
             //content = contentBox.Rtf;
             //content = content.ToString();
@@ -298,7 +308,7 @@ namespace OLLE_Desktop_APP
                 "\"language\":\"" + language + "\"," +
                 "\"files_url\":\"" + file_names_total + "\"," +
                 "\"profile_photo\":\"" + profile_photo + "\"," +
-                "\"topic_detail\":\"" + content + "\"}";
+                "\"topic_detail\":\"" + content + "\"}"; // PHP cannot store "\n" so need to replace it with other characters that did not use:ǯ
 
             string result = Program.PostToServer(url, paramStr, "POST");
 

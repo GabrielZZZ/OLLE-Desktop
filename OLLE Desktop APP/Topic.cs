@@ -105,7 +105,7 @@ namespace OLLE_Desktop_APP
             Detail_page.TopicTitle = topic_title1.Text;
 
             //pass topic details to TopicDetailPage
-            Detail_page.TopicDetails = topic_details.Text;
+            Detail_page.TopicDetails = Program.changeCharacterBack(topic_details.Text);
 
             //pass topic date to TopicDetailPage
             Detail_page.TopicDate = topic_date1.Text;

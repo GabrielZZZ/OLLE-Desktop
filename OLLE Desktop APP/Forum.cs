@@ -142,7 +142,7 @@ namespace OLLE_Desktop_APP
                     test.ChangeAuthorImage(myDeserializedClass.TopicsData[i].profile_photo);
                     test.TopicAuthor = myDeserializedClass.TopicsData[i].post_username;
                     test.TopicTitle = myDeserializedClass.TopicsData[i].topic_title;
-                    test.TopicDetails = myDeserializedClass.TopicsData[i].topic_detail;
+                    test.TopicDetails = Program.changeCharacterBack(myDeserializedClass.TopicsData[i].topic_detail);
                     test.TopicDate = myDeserializedClass.TopicsData[i].topic_date;
                     test.files_url = myDeserializedClass.TopicsData[i].files_url;
                     test.rtf_file_url = str + Path.GetFileName(myDeserializedClass.TopicsData[i].rtf_file_url);
@@ -191,10 +191,10 @@ namespace OLLE_Desktop_APP
                     test1.ChangeAuthorImage(myDeserializedClass.TopicsData[i].profile_photo);
                     test1.TopicAuthor = myDeserializedClass.TopicsData[i].post_username;
                     test1.TopicTitle = myDeserializedClass.TopicsData[i].topic_title;
-                    test1.TopicDetails = myDeserializedClass.TopicsData[i].topic_detail;
+                    test1.TopicDetails = Program.changeCharacterBack(myDeserializedClass.TopicsData[i].topic_detail);
                     test1.TopicDate = myDeserializedClass.TopicsData[i].topic_date;
                     test1.topic_id = myDeserializedClass.TopicsData[i].topic_id;
-                    test1.rtf_file_url = Path.GetFileName(myDeserializedClass.TopicsData[i].rtf_file_url);
+                    test1.rtf_file_url = str + Path.GetFileName(myDeserializedClass.TopicsData[i].rtf_file_url);
 
                     if (myDeserializedClass.TopicsData[i].rtf_file_url != null)
                     {
