@@ -41,13 +41,16 @@
             this.underline_button = new System.Windows.Forms.Button();
             this.week_label = new System.Windows.Forms.Label();
             this.week_select = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.formatContent = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(11, 83);
+            this.label1.Location = new System.Drawing.Point(11, 77);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 31);
@@ -58,7 +61,7 @@
             // titleBox
             // 
             this.titleBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleBox.Location = new System.Drawing.Point(17, 124);
+            this.titleBox.Location = new System.Drawing.Point(17, 114);
             this.titleBox.Margin = new System.Windows.Forms.Padding(2);
             this.titleBox.Name = "titleBox";
             this.titleBox.Size = new System.Drawing.Size(806, 21);
@@ -68,7 +71,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(11, 156);
+            this.label2.Location = new System.Drawing.Point(11, 144);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 31);
@@ -79,10 +82,10 @@
             // contentBox
             // 
             this.contentBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contentBox.Location = new System.Drawing.Point(17, 222);
+            this.contentBox.Location = new System.Drawing.Point(17, 205);
             this.contentBox.Margin = new System.Windows.Forms.Padding(2);
             this.contentBox.Name = "contentBox";
-            this.contentBox.Size = new System.Drawing.Size(806, 378);
+            this.contentBox.Size = new System.Drawing.Size(806, 349);
             this.contentBox.TabIndex = 3;
             this.contentBox.Text = "";
             this.contentBox.TextChanged += new System.EventHandler(this.contentBox_TextChanged);
@@ -91,10 +94,10 @@
             // 
             this.bold.BackColor = System.Drawing.Color.White;
             this.bold.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bold.Location = new System.Drawing.Point(17, 190);
+            this.bold.Location = new System.Drawing.Point(17, 175);
             this.bold.Margin = new System.Windows.Forms.Padding(2);
             this.bold.Name = "bold";
-            this.bold.Size = new System.Drawing.Size(29, 23);
+            this.bold.Size = new System.Drawing.Size(29, 21);
             this.bold.TabIndex = 4;
             this.bold.Text = "B";
             this.bold.UseVisualStyleBackColor = false;
@@ -104,10 +107,10 @@
             // 
             this.italic.BackColor = System.Drawing.Color.White;
             this.italic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.italic.Location = new System.Drawing.Point(51, 190);
+            this.italic.Location = new System.Drawing.Point(51, 175);
             this.italic.Margin = new System.Windows.Forms.Padding(2);
             this.italic.Name = "italic";
-            this.italic.Size = new System.Drawing.Size(29, 23);
+            this.italic.Size = new System.Drawing.Size(29, 21);
             this.italic.TabIndex = 5;
             this.italic.Text = "I";
             this.italic.UseVisualStyleBackColor = false;
@@ -117,7 +120,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(16, 606);
+            this.label3.Location = new System.Drawing.Point(16, 559);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 31);
@@ -127,10 +130,10 @@
             // submitTopic
             // 
             this.submitTopic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitTopic.Location = new System.Drawing.Point(751, 18);
+            this.submitTopic.Location = new System.Drawing.Point(751, 17);
             this.submitTopic.Margin = new System.Windows.Forms.Padding(2);
             this.submitTopic.Name = "submitTopic";
-            this.submitTopic.Size = new System.Drawing.Size(70, 27);
+            this.submitTopic.Size = new System.Drawing.Size(70, 25);
             this.submitTopic.TabIndex = 7;
             this.submitTopic.Text = "Submit!";
             this.submitTopic.UseVisualStyleBackColor = true;
@@ -139,10 +142,10 @@
             // uploadFile
             // 
             this.uploadFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uploadFile.Location = new System.Drawing.Point(17, 677);
+            this.uploadFile.Location = new System.Drawing.Point(17, 625);
             this.uploadFile.Margin = new System.Windows.Forms.Padding(2);
             this.uploadFile.Name = "uploadFile";
-            this.uploadFile.Size = new System.Drawing.Size(142, 63);
+            this.uploadFile.Size = new System.Drawing.Size(142, 58);
             this.uploadFile.TabIndex = 8;
             this.uploadFile.Text = "Upload File";
             this.uploadFile.UseVisualStyleBackColor = true;
@@ -153,20 +156,20 @@
             this.selectFilePanel.AutoScroll = true;
             this.selectFilePanel.AutoSize = true;
             this.selectFilePanel.BackColor = System.Drawing.Color.White;
-            this.selectFilePanel.Location = new System.Drawing.Point(200, 638);
+            this.selectFilePanel.Location = new System.Drawing.Point(200, 589);
             this.selectFilePanel.Margin = new System.Windows.Forms.Padding(2);
             this.selectFilePanel.Name = "selectFilePanel";
-            this.selectFilePanel.Size = new System.Drawing.Size(621, 172);
+            this.selectFilePanel.Size = new System.Drawing.Size(621, 159);
             this.selectFilePanel.TabIndex = 9;
             // 
             // underline_button
             // 
             this.underline_button.BackColor = System.Drawing.Color.White;
             this.underline_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.underline_button.Location = new System.Drawing.Point(89, 190);
+            this.underline_button.Location = new System.Drawing.Point(89, 175);
             this.underline_button.Margin = new System.Windows.Forms.Padding(2);
             this.underline_button.Name = "underline_button";
-            this.underline_button.Size = new System.Drawing.Size(29, 23);
+            this.underline_button.Size = new System.Drawing.Size(29, 21);
             this.underline_button.TabIndex = 10;
             this.underline_button.Text = "U";
             this.underline_button.UseVisualStyleBackColor = false;
@@ -176,7 +179,7 @@
             // 
             this.week_label.AutoSize = true;
             this.week_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.week_label.Location = new System.Drawing.Point(11, 36);
+            this.week_label.Location = new System.Drawing.Point(11, 33);
             this.week_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.week_label.Name = "week_label";
             this.week_label.Size = new System.Drawing.Size(83, 31);
@@ -204,17 +207,47 @@
             "14",
             "15",
             "16"});
-            this.week_select.Location = new System.Drawing.Point(113, 46);
+            this.week_select.Location = new System.Drawing.Point(113, 42);
             this.week_select.Name = "week_select";
-            this.week_select.Size = new System.Drawing.Size(46, 21);
+            this.week_select.Size = new System.Drawing.Size(46, 20);
             this.week_select.TabIndex = 14;
+            this.week_select.SelectedIndexChanged += new System.EventHandler(this.week_select_SelectedIndexChanged);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(133, 175);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(93, 21);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "change color";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // formatContent
+            // 
+            this.formatContent.BackColor = System.Drawing.Color.White;
+            this.formatContent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.formatContent.FormattingEnabled = true;
+            this.formatContent.Items.AddRange(new object[] {
+            "Title",
+            "Heading",
+            "Paragraph"});
+            this.formatContent.Location = new System.Drawing.Point(247, 175);
+            this.formatContent.Name = "formatContent";
+            this.formatContent.Size = new System.Drawing.Size(70, 20);
+            this.formatContent.TabIndex = 17;
+            this.formatContent.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // newTopic
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(843, 766);
+            this.ClientSize = new System.Drawing.Size(843, 707);
+            this.Controls.Add(this.formatContent);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.week_select);
             this.Controls.Add(this.week_label);
             this.Controls.Add(this.underline_button);
@@ -253,5 +286,8 @@
         private System.Windows.Forms.Button underline_button;
         private System.Windows.Forms.Label week_label;
         private System.Windows.Forms.ComboBox week_select;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ComboBox formatContent;
     }
 }

@@ -435,7 +435,9 @@ namespace OLLE_Desktop_APP
 
         private void contentBox_TextChanged(object sender, EventArgs e)
         {
-
+            // contentBox.SelectAll();
+            // Font font = new Font(FontFamily.GenericMonospace,contentBox.Font.Size,contentBox.Font.Style);
+            // this.contentBox.SelectionFont = font;
         }
 
         private void bold_Click(object sender, EventArgs e)
@@ -519,6 +521,77 @@ namespace OLLE_Desktop_APP
             {
                 week_label.Visible = false;
                 week_select.Visible = false;
+            }
+        }
+
+        private void changeColor(Color color)
+        {
+            List<int> arrylist = calculateIndex(contentBox.Text, contentBox.SelectedText); //str为自己的字符串内容
+            for (int i = 0; i < arrylist.Count; i++)
+            {
+                int StrIndex = arrylist[i];
+                contentBox.Select(StrIndex, contentBox.SelectedText.Length);
+                contentBox.SelectionColor = color;
+            }
+
+        }
+
+        public List<int> calculateIndex(string RichText, string Str)
+        {
+            List<int> array = new List<int>();
+            int startIndex = 0;
+            while (startIndex < RichText.Length)
+            {
+                int startPosition = RichText.IndexOf(Str, startIndex);
+                if (startPosition >= 0)
+                {
+                    array.Add(startPosition);
+                    startIndex = startPosition + Str.Length;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            return array;
+        }
+
+
+        private void week_select_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //changeColor(Color.Red);
+            DialogResult dr = colorDialog1.ShowDialog();
+            //如果选中颜色，单击“确定”按钮则改变文本框的文本颜色
+            if (dr == DialogResult.OK)
+            {
+                contentBox.SelectionColor = colorDialog1.Color;
+            }
+
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (formatContent.SelectedItem.ToString() == "Title")
+            {
+                Font font = new Font(FontFamily.GenericMonospace, 24, FontStyle.Regular);
+                this.contentBox.SelectionFont = font;
+                ChangeFontStyle(FontStyle.Bold);
+            } else if (formatContent.SelectedItem.ToString() == "Heading")
+            {
+                Font font1 = new Font(FontFamily.GenericMonospace, 12, FontStyle.Regular);
+                this.contentBox.SelectionFont = font1;
+                ChangeFontStyle(FontStyle.Bold);
+            } else if (formatContent.SelectedItem.ToString() == "paragraph")
+            {
+                Font font2 = new Font(FontFamily.GenericMonospace, 12, FontStyle.Regular);
+                this.contentBox.SelectionFont = font2;
+                ChangeFontStyle(FontStyle.Regular);
             }
         }
     }
