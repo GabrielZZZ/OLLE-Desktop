@@ -58,13 +58,13 @@ namespace OLLE_Desktop_APP
                 }
 
                 //MessageBox.Show(file_Name);
-                //m.TransferBatchUploadObjects(fileNames, srcPaths);
+
 
                 // handle the filenames to store them into the database
                 for (int i = 0; i < srcPaths.Length; i++)
                 {
                     // get the http address of each file uploaded to the bucket
-                    profile_photo = "https://olle2019-1257377975.cos.ap-chengdu.myqcloud.com/" + fileNames[i] + ";"; // ";" is used to split
+                    profile_photo = "https://olle2019-1257377975.cos.ap-chengdu.myqcloud.com/" + fileNames[i]; // ";" is used to split
 
                 }
 
@@ -76,13 +76,15 @@ namespace OLLE_Desktop_APP
             string type = "updatePhoto";
             string url = Program.host_url + type;//地址
 
-            string paramStr = "{\"photo\":\"" + profile_photo + "\"," +
+            string paramStr = "{\"profile_photo\":\"" + profile_photo + "\"," +
                                   "\"user_id\":\"" + Program.userData.user_id + "\"}";
 
 
 
             string result = Program.PostToServer(url, paramStr, "POST");
 
+            TransferUploadObjectModel m = new TransferUploadObjectModel();
+            m.TransferBatchUploadObjects(file_path_total, src_path_total);
 
 
             if (result.Contains("error"))
@@ -99,9 +101,15 @@ namespace OLLE_Desktop_APP
             else
             {
                 // sign up successfully, the verification email has sent
-                MessageBox.Show("Change Success!");
+                
                 Program.userData.profile_photo = profile_photo;
 
+                DialogResult dr = MessageBox.Show("Change Success!");
+
+                if (dr == DialogResult.Yes)
+                {
+                    this.Close();
+                }
 
             }
         }
