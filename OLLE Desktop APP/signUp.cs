@@ -133,7 +133,7 @@ namespace OLLE_Desktop_APP
                 for (int i = 0; i < srcPaths.Length; i++)
                 {
                     // get the http address of each file uploaded to the bucket
-                    profile_photo = "https://olle2019-1257377975.cos.ap-chengdu.myqcloud.com/" + fileNames[i] + ";"; // ";" is used to split
+                    profile_photo = "https://olle2019-1257377975.cos.ap-chengdu.myqcloud.com/" + fileNames[i]; // ";" is used to split
                     
                 }
 
