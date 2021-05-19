@@ -56,5 +56,10 @@ namespace OLLE_Desktop_APP
             ChangePhoto changePhoto = new ChangePhoto();
             changePhoto.Show();
         }
+
+        private void logOut_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

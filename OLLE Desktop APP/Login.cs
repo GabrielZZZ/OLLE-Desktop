@@ -25,8 +25,8 @@ namespace OLLE_Desktop_APP
             string password = this.textBox2.Text;
 
             //just for developing!!!!//////////////////
-            username = "admin";
-            password = "admin123";
+            //username = "admin";
+           // password = "admin123";
             ///////////////////////////////////////////
 
 

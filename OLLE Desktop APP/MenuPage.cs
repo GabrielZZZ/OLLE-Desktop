@@ -93,5 +93,13 @@ namespace OLLE_Desktop_APP
             Program.LTooltip(settingPage.username, Program.userData.username.Length);
             settingPage.ShowDialog();
         }
+
+        private void logOutButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Login newLoginPage = new Login();
+            newLoginPage.ShowDialog();
+            
+        }
     }
 }
