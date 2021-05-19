@@ -10,26 +10,33 @@ using System.Windows.Forms;
 
 namespace OLLE_Desktop_APP
 {
-    public partial class Verification : Form
+    public partial class ChangePasswordEmail : Form
     {
         public string email = "";
 
-        public Verification()
+        public ChangePasswordEmail()
         {
             InitializeComponent();
         }
 
-        private void verify_button_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            string verify_code = this.textBox1.Text;
+            string password = this.password1.Text;
+            string password1 = this.password2.Text;
 
-            string type = "verifyAccount";
+            if (password != password1)
+            {
+                MessageBox.Show("Please type the same passwords in two boxes!");
+                return;
+            }
+
+            string type = "resetPasswordEmail";
             string url = Program.host_url + type;//地址
 
-            //string paramStr = "{\"username\":\"admin\"," + "\"password\":\"admin123\"}";
-
-            string paramStr = "{\"valCode\":\"" + verify_code + "\"," +
+            string paramStr = "{\"newPass\":\"" + password1 + "\"," +
                                   "\"email\":\"" + email + "\"}";
+
+
 
             string result = Program.PostToServer(url, paramStr, "POST");
 
@@ -49,12 +56,8 @@ namespace OLLE_Desktop_APP
             else
             {
                 // sign up successfully, the verification email has sent
-                MessageBox.Show("Verification Success!");
+                MessageBox.Show("Change Success!");
 
-                this.Close();
-                ChangePasswordEmail changePassword = new ChangePasswordEmail();
-                changePassword.email = email;
-                changePassword.ShowDialog();
 
             }
         }

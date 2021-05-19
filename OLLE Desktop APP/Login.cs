@@ -25,8 +25,8 @@ namespace OLLE_Desktop_APP
             string password = this.textBox2.Text;
 
             //just for developing!!!!//////////////////
-            // username = "admin";
-            // password = "admin123";
+            username = "admin";
+            password = "admin123";
             ///////////////////////////////////////////
 
 
@@ -125,6 +125,12 @@ namespace OLLE_Desktop_APP
         {
             SignUp signup = new SignUp();
             signup.ShowDialog();
+        }
+
+        private void forgetPassword_Click(object sender, EventArgs e)
+        {
+            ForgetPassword forgetPasswordPage = new ForgetPassword();
+            forgetPasswordPage.ShowDialog();
         }
 
         /**
