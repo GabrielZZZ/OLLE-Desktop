@@ -24,6 +24,12 @@ namespace OLLE_Desktop_APP
             forum_index = index;
             InitializeComponent();
             this.forum_name.Text = name; // mark which category the forum shows, e.g. announcements, troubleshoot, etc.
+
+            if (Program.userData.user_account_status != "admin")
+            {
+                newTopic.Hide();
+            }
+
             //MessageBox.Show("Wrong username or password. Please try again.", "Login Result");
         }
 

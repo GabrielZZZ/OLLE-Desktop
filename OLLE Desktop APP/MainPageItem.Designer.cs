@@ -38,7 +38,7 @@
             // 
             this.weekNum.AutoSize = true;
             this.weekNum.Font = new System.Drawing.Font("Arial", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weekNum.Location = new System.Drawing.Point(64, 20);
+            this.weekNum.Location = new System.Drawing.Point(75, 18);
             this.weekNum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.weekNum.Name = "weekNum";
             this.weekNum.Size = new System.Drawing.Size(21, 22);
@@ -49,7 +49,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(11, 20);
+            this.label1.Location = new System.Drawing.Point(11, 18);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 22);
@@ -61,7 +61,7 @@
             this.mainPageTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.mainPageTitle.AutoSize = true;
             this.mainPageTitle.Font = new System.Drawing.Font("Arial", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mainPageTitle.Location = new System.Drawing.Point(356, 20);
+            this.mainPageTitle.Location = new System.Drawing.Point(356, 18);
             this.mainPageTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mainPageTitle.Name = "mainPageTitle";
             this.mainPageTitle.Size = new System.Drawing.Size(152, 22);
@@ -72,10 +72,10 @@
             // detailButton
             // 
             this.detailButton.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.detailButton.Location = new System.Drawing.Point(768, 35);
-            this.detailButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.detailButton.Location = new System.Drawing.Point(768, 32);
+            this.detailButton.Margin = new System.Windows.Forms.Padding(2);
             this.detailButton.Name = "detailButton";
-            this.detailButton.Size = new System.Drawing.Size(62, 23);
+            this.detailButton.Size = new System.Drawing.Size(62, 21);
             this.detailButton.TabIndex = 3;
             this.detailButton.Text = "Details";
             this.detailButton.UseVisualStyleBackColor = true;
@@ -83,16 +83,16 @@
             // 
             // MainPageItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(this.detailButton);
             this.Controls.Add(this.mainPageTitle);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.weekNum);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainPageItem";
-            this.Size = new System.Drawing.Size(841, 57);
+            this.Size = new System.Drawing.Size(841, 53);
             this.ResumeLayout(false);
             this.PerformLayout();
 

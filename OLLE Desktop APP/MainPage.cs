@@ -39,6 +39,7 @@ namespace OLLE_Desktop_APP
             public string fileUrl { get; set; }
             public string profile_photo { get; set; }
             public string files_url { get; set; }
+            public string page_week { get; set; }
         }
 
         public class Root
@@ -75,7 +76,7 @@ namespace OLLE_Desktop_APP
 
 
                 test.PageTitle = myDeserializedClass.pageData[i].page_title;
-                
+                test.getWeekNum = myDeserializedClass.pageData[i].page_week;
                 test.pageDetails = Program.changeCharacterBack(myDeserializedClass.pageData[i].page_detail);
                 test.date = myDeserializedClass.pageData[i].page_date;
                 test.files_url = myDeserializedClass.pageData[i].files_url;

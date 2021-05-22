@@ -31,6 +31,12 @@ namespace OLLE_Desktop_APP
             set { mainPageTitle.Text = value; }
         }
 
+        public string getWeekNum
+        {
+            get { return weekNum.Text; }
+            set { weekNum.Text = value; }
+        }
+
         private void detailButton_Click(object sender, EventArgs e)
         {
             //MessageBox.Show("Ouch!");
