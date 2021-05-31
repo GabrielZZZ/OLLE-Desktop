@@ -30,6 +30,7 @@ namespace OLLE_Desktop_APP
             public string profile_photo { get; set; }
             public string token { get; set; }
 
+
         };
 
         public class WrapperClass
@@ -54,6 +55,8 @@ namespace OLLE_Desktop_APP
             userDataDetails.language = wrapperclass.userData.language;
             userDataDetails.profile_photo = wrapperclass.userData.profile_photo;
             userDataDetails.token = wrapperclass.userData.token;
+            userDataDetails.user_account_status = wrapperclass.userData.user_account_status;
+
 
 
             return userDataDetails;
